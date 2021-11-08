@@ -10,7 +10,7 @@ import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 import DirectionsBusOutlinedIcon from '@mui/icons-material/DirectionsBusOutlined';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
-import { textAlign } from '@mui/system';
+
 
 const textcolor = "#1A1810";
 
@@ -21,12 +21,14 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+
+
 export default function ServiceRoom() {
   return (
     <Box  sx={{ width: '90%' , position: "relative" , left: "50%", transform: "translateX(-50%)", }}>
         <Typography variant="h4" component="div" textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}> - Service</Typography>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} color={textcolor} >
-            <Grid item xs={4}>
+            <Grid  item sm={12} md={6} lg={4}>
                 <Item>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         <Grid item xs={3}> <BedOutlinedIcon style={{fontSize: "70px", color: "#1A1810"}}/> </Grid>
@@ -40,13 +42,13 @@ export default function ServiceRoom() {
                     </Grid>
                 </Item>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item sm={12} md={6} lg={4}>
                 <Item>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                        <Grid item xs={3}> <WifiIcon style={{fontSize: "70px"}}/> </Grid>
+                        <Grid item xs={3}> <WifiIcon style={{fontSize: "70px" , color: "#1A1810"}} /> </Grid>
                         <Grid item xs={9}>
-                            <Typography variant="h6" component="div" textAlign="left" sx={{ flexGrow: 1 }} >Luxury Room</Typography>
-                            <Typography variant="body1" gutterBottom textAlign="left">
+                            <Typography variant="h6" component="div" textAlign="left" sx={{ flexGrow: 1 }} color={textcolor} >Luxury Room</Typography>
+                            <Typography variant="body1" gutterBottom textAlign="left" color={textcolor}>
                                 Even the all-powerful pointing has no control about the blind 
                                 test it is an almos unorthographic
                             </Typography>
@@ -55,13 +57,13 @@ export default function ServiceRoom() {
                 </Item>
             
             </Grid>
-            <Grid item xs={4}>
+            <Grid item sm={12} md={6} lg={4}>
                 <Item>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                        <Grid item xs={3}> <PhoneInTalkIcon style={{fontSize: "70px"}}/> </Grid>
+                        <Grid item xs={3}> <PhoneInTalkIcon style={{fontSize: "70px", color: "#1A1810"}}/> </Grid>
                         <Grid item xs={9}>
-                            <Typography variant="h6" component="div" textAlign="left" sx={{ flexGrow: 1 }} >Luxury Room</Typography>
-                            <Typography variant="body1" gutterBottom textAlign="left">
+                            <Typography variant="h6" component="div" textAlign="left" sx={{ flexGrow: 1 }} color={textcolor}>Luxury Room</Typography>
+                            <Typography variant="body1" gutterBottom textAlign="left" color={textcolor}>
                                 Even the all-powerful pointing has no control about the blind 
                                 test it is an almos unorthographic
                             </Typography>
@@ -69,13 +71,13 @@ export default function ServiceRoom() {
                     </Grid>
                 </Item>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item sm={12} md={6} lg={4}>
             <Item>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                        <Grid item xs={3}> <DirectionsBusOutlinedIcon style={{fontSize: "70px"}}/> </Grid>
+                        <Grid item xs={3}> <DirectionsBusOutlinedIcon style={{fontSize: "70px", color: "#1A1810"}}/> </Grid>
                         <Grid item xs={9}>
-                            <Typography variant="h6" component="div" textAlign="left" sx={{ flexGrow: 1 }} >Luxury Room</Typography>
-                            <Typography variant="body1" gutterBottom textAlign="left">
+                            <Typography variant="h6" component="div" textAlign="left" sx={{ flexGrow: 1 }} color={textcolor}>Luxury Room</Typography>
+                            <Typography variant="body1" gutterBottom textAlign="left" color={textcolor}>
                                 Even the all-powerful pointing has no control about the blind 
                                 test it is an almos unorthographic
                             </Typography>
@@ -83,13 +85,13 @@ export default function ServiceRoom() {
                     </Grid>
                 </Item>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item sm={12} md={6} lg={4}>
             <Item>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                        <Grid item xs={3}> <CreditCardIcon style={{fontSize: "70px"}}/> </Grid>
+                        <Grid item xs={3}> <CreditCardIcon style={{fontSize: "70px", color: "#1A1810"}}/> </Grid>
                         <Grid item xs={9}>
-                            <Typography variant="h6" component="div" textAlign="left" sx={{ flexGrow: 1 }} >Luxury Room</Typography>
-                            <Typography variant="body1" gutterBottom textAlign="left">
+                            <Typography variant="h6" component="div" textAlign="left" sx={{ flexGrow: 1 }} color={textcolor}>Luxury Room</Typography>
+                            <Typography variant="body1" gutterBottom textAlign="left" color={textcolor}>
                                 Even the all-powerful pointing has no control about the blind 
                                 test it is an almos unorthographic
                             </Typography>
@@ -97,13 +99,13 @@ export default function ServiceRoom() {
                     </Grid>
                 </Item>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item sm={12} md={6} lg={4}>
             <Item>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                        <Grid item xs={3}> <RestaurantIcon style={{fontSize: "70px"}}/> </Grid>
+                        <Grid item xs={3}> <RestaurantIcon style={{fontSize: "70px", color: "#1A1810"}}/> </Grid>
                         <Grid item xs={9}>
-                            <Typography variant="h6" component="div" textAlign="left" sx={{ flexGrow: 1 }} >Luxury Room</Typography>
-                            <Typography variant="body1" gutterBottom textAlign="left">
+                            <Typography variant="h6" component="div" textAlign="left" sx={{ flexGrow: 1 }} color={textcolor}>Luxury Room</Typography>
+                            <Typography variant="body1" gutterBottom textAlign="left" color={textcolor}>
                                 Even the all-powerful pointing has no control about the blind 
                                 test it is an almos unorthographic
                             </Typography>

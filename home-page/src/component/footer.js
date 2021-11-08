@@ -30,7 +30,7 @@ export default function Footer(){
     return (
     <Box className={classes.footerContainer} sx={{ width: '100%' , position: "relative" , left: "50%", transform: "translateX(-50%)", }} marginTop='5vh' backgroundColor='#FCFAF0'>
         <Grid className={classes.gridContainer} container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} columns={16}>
-            <Grid item xs={7}  >
+            <Grid item lg={7} md={9} sm={9} xs={16}>
                 <Link href="#" underline="none" >
                     <Typography variant="h6" component="div" className={classes.linkItem} textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}> BKLuxuryHotel </Typography>
                 </Link>
@@ -42,7 +42,7 @@ export default function Footer(){
                 </Link>
                    
             </Grid>
-            <Grid item xs={3}>
+            <Grid item lg={3} md={7} sm={7} xs={16}>
                 <Link href="#" underline="none" >
                     <Typography variant="h6" component="div" className={classes.linkItem} textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}> Product </Typography>
                 </Link>
@@ -56,7 +56,7 @@ export default function Footer(){
                     <Typography variant="body1" component="div" className={classes.linkItem} textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}>  Product </Typography>
                 </Link>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item lg={3} md={7} sm={7} xs={16} >
                 <Link href="#" underline="none" >
                     <Typography variant="h6" component="div" className={classes.linkItem} textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}> Features </Typography>
                 </Link>
@@ -70,7 +70,7 @@ export default function Footer(){
                     <Typography variant="body1" component="div" className={classes.linkItem} textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}>  Features </Typography>
                 </Link>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item lg={3} md={7} sm={7} xs={16}>
                 <Link href="#" underline="none" >
                     <Typography variant="h6" component="div" className={classes.linkItem} textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}> Resources </Typography>
                 </Link>
