@@ -3,13 +3,14 @@ import {
     Switch,
     Route,
     Link
-} from "react-router-dom";
+} from 'react-router-dom';
 
 import Booking from './booking/Booking';
 import Home from './home/Home';
 import Rooms from './rooms/Rooms';
 import Services from './services/Services';
 import SignIn from './signIn/SignIn';
+import SignUp from './signIn/SignUp';
 
 export default function Routes(){
     return(
@@ -46,6 +47,12 @@ export default function Routes(){
             </Route>
             <Route exact path="/signin">
               <SignIn/>
+            </Route>
+            <Route exact path="/signup">
+              <SignUp/>
+            </Route>
+            <Route exact path="/signin">
+              <SignIn />
             </Route>
             <Route exact path="/">
               <Home />
