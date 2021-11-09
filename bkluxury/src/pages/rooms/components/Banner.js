@@ -1,31 +1,32 @@
 import Box from '@material-ui/core/Box'
 import ImageBanner1 from '../images/Baner1.png'
+import { Card, CardMedia, Typography } from '@material-ui/core';
+
 
 export default function Banner() {
     return (
-        <div>
-            <Box sx={{
-                backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${ImageBanner1})`,
-                height: '520px',
-                backgroundPosition: "center",
-                display: "flex",
-                textAlign: "left",
-                paddingLeft: "100px",
-                flexDirection: "column",
-                color: "white",
-            }}>
-                <div style={{
-                    fontSize: "50px",
-                    fontWeight: "100",
-                    marginTop: "120px"
-                }}>Rooms</div>
+            <Card>
+                <Box sx={{ position: 'relative' }}>
+                    <CardMedia
+                        component="img"
+                        image={ImageBanner1}
+                    />
+                    <Box
+                        sx={{
+                            position: 'absolute',
+                            bottom: "30%",
+                            left: "5%",
+                            width: '100%',
+                            color: 'white',
+                            padding: '10px',
+                            textAlign: 'left'
+                        }}
+                    >
+                        <Typography variant="h3">ROOMS</Typography>
+                        <Typography variant="h1">Hotels Rooms</Typography>
+                    </Box>
+                </Box>
+            </Card>
 
-                <div style={{
-                    fontSize: "80px",
-                    fontWeight: "500",
-                    marginTop: "30px"
-                }}>Hotel Rooms</div>
-            </Box>
-        </div>
     );
 }
