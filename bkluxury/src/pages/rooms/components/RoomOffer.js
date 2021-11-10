@@ -53,7 +53,7 @@ export default function RoomOffer() {
         <Grid container direction="row" justifyContent="center">
             <Grid item xs={12}>
                 <Box sx={{
-                    marginY: "5%",
+                    marginY: "10%",
                     bgcolor: "#f8f8f8",
                 }}>
                     <Grid container direction="column" spacing={5}>
