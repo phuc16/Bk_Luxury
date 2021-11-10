@@ -68,19 +68,21 @@ export default class MainContent extends React.Component {
                             </Grid>
                             <Grid item xs={12} sm={12} md={4} lg={4}>
                                 <Typography style={{borderBottom: "1px solid #a77b5a", paddingBottom: "2%"}} variant="h5">Amenities as listed below: </Typography>
-                                <Typography style={{textAlign: "left", paddingTop: "10px"}} 
-                                            variant="h6">Private registration for check-in and check-out
-                                                         Daily breakfast from 6:00 am to 10:30 am at Club InterContinental Lounge or Market 39
-                                                         Afternoon tea from 2:00pm to 5:00 pm at Club InterContinental Lounge
-                                                         Evening drinks from 5:30 pm to 7:30 pm with a great selection of canapés, beverages and our special win of the month at Club InterContinental Lounge
-                                                         All day refreshments with tea/coffee, non - alcohol beverages at Club InterContinental Lounge
-                                                         Free use of internet in your room and at Club InterContinental Lounge for a maximum of four devices during the stay
-                                                         Free use of the iPad whenever you are at Club InterContinental Lounge
-                                                         Complimentary local calls
-                                                         Complimentary pressing of two pieces during your stay
-                                                         25% discount on all laundry services
-                                                         Daily turndown service
-                                                         Two hours usage of the Club InterContinental boardroom for up to 8 people during your stay (subject to availability)
+                                <Typography style={{textAlign: "left", paddingTop: "10px", fontSize: "1rem"}} 
+                                            variant="h6"><ul>
+                                                            <li>Private registration for check-in and check-out</li>
+                                                            <li> Daily breakfast from 6:00 am to 10:30 am at Club InterContinental Lounge or Market 39</li>
+                                                            <li> Afternoon tea from 2:00pm to 5:00 pm at Club InterContinental Lounge</li>
+                                                            <li> Evening drinks from 5:30 pm to 7:30 pm with a great selection of canapés, beverages and our special win of the month at Club InterContinental Lounge</li>
+                                                            <li> All day refreshments with tea/coffee, non - alcohol beverages at Club InterContinental Lounge</li>
+                                                            <li>Free use of internet in your room and at Club InterContinental Lounge for a maximum of four devices during the stay</li>
+                                                            <li> Free use of the iPad whenever you are at Club InterContinental Lounge</li>
+                                                            <li>Complimentary local calls</li>
+                                                            <li>Complimentary pressing of two pieces during your stay</li>
+                                                            <li>25% discount on all laundry services</li>
+                                                            <li>Daily turndown service</li>
+                                                            <li> Two hours usage of the Club InterContinental boardroom for up to 8 people during your stay (subject to availability)</li>
+                                                         </ul>
                                 </Typography>
                             </Grid>
 

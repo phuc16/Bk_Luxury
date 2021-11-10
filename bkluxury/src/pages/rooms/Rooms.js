@@ -4,8 +4,8 @@ import Page3 from './page3'
 
 export default function Rooms() {
     return (
-        <Page1 />
+        //<Page1 />
         //<Page2 />
-       // <Page3 />
+        <Page3 />
     );
 }
