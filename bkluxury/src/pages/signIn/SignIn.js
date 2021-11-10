@@ -44,7 +44,7 @@ export default function SignIn() {
 
     return (
       <Grid container spacing={10}>
-        <Grid item lg={6} md={6} sm={2}>
+        <Grid item lg={6} md={6} sm={6}>
           <Form onSubmit={handleSubmit}>
             <h4>Please Sign In</h4>
             <Controls.Input
@@ -80,7 +80,7 @@ export default function SignIn() {
             </div>
           </Form>
         </Grid> 
-        <Grid item lg={6} md={6} sm={12}>
+        <Grid item lg={6} md={6} sm={5}>
           <div style={{
             textAlign: 'center',
             margin: '0 auto',
