@@ -19,10 +19,10 @@ export default function Main() {
                             <BedIcon style={{fontSize: "2rem", color: "#a77b5a"}} />
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography style={{fontWeight: "500", color: "#a77b5a"}} variant="h2">Club Intercontinental Rooms</Typography>
+                            <Typography style={{fontWeight: "400", color: "#a77b5a"}} variant="h2">DELUXE KING ROOM</Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography style={{paddingTop: "10px"}} variant="h6">Club InterContinental rooms at InterContinental Saigon Hotel offer exclusive space to relax, along with stunning views of Saigon cosmopolitan. You'll also enjoy benefits like complimentary pressing service, complimentary Wi-Fi and local calls. These premium rooms include daily breakfasts at Club InterContinental Lounge or Market 39 restaurant, afternoon tea as well as signature cocktails at our exclusive Club InterContinental Lounge.</Typography>
+                            <Typography style={{paddingTop: "10px"}} variant="h6">Ideal for both business and leisure travellers, timeless luxury and functional amenities unite, all with a stunning view of the city. Take advantage of the 24-hour in-room dining service, laundry service and personal business centre, which includes an in-room telephone line and exclusive access to the fax and printer in the Business Centre at InterContinental Saigon Hotel.</Typography>
                         </Grid>
                     </Grid>
                 </Box>

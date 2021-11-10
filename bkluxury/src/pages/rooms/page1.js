@@ -35,7 +35,6 @@ export default function Page1() {
                         }
                     })
                 }
-
                 <MoreRoom />
         </MuiThemeProvider>
     );

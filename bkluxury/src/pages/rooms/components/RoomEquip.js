@@ -26,7 +26,7 @@ export default function RoomEquip({ equip, area }) {
     return (
 
         <Box sx={{
-            padding: "2%",
+            padding: "5%",
         }}>
             <Grid container direction="column" spacing={5} >
                 <Grid item xs={12}>
@@ -38,7 +38,7 @@ export default function RoomEquip({ equip, area }) {
                         })
                     }
                 </Grid>
-                <Grid item xs={12}>
+                <Grid style={{borderTop: "1px solid #a77b5a"}} item xs={12}>
                     <Typography variant="body1">{area}</Typography>
                 </Grid>
             </Grid>
