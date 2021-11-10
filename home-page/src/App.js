@@ -7,15 +7,19 @@ import ServiceRoom from './component/service-grid';
 import FeatureRoom from './component/feature-room';
 import SocialGallery from './component/social-gallery';
 import Footer from './component/footer';
+import Header from './component/header';
 
 function App() {
   return (
     <div className="container">
-      <ButtonAppBar/>
-      <SimpleSlider/>
+      <Header/>
+      <div className='slider' style={{marginTop: '64px'}}>
+        <SimpleSlider />  
+      </div>
+      
       <div className="Description">
-        <Box sx={{ width: '100%', maxWidth: "100%", alignItems: "center", backgroundColor: "#FCFAF0"}}>
-          <Typography variant="h3" gutterBottom component="div" textAlign="center">
+        <Box sx={{ width: '100%', maxWidth: "100%", alignItems: "center", backgroundColor: "#FCFAF0", }}>
+          <Typography variant="h3" gutterBottom component="div" textAlign="center" >
             BK LUXURY HOTEL
           </Typography>
           <Typography variant="body1" gutterBottom textAlign="center">

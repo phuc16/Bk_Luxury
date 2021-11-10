@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     },
     linkItem:{
         height: '3vh',
-        padding: '2.5vh 0'
+        padding: '2.5vh 3vw'
     }
 
 
@@ -30,7 +30,7 @@ export default function Footer(){
     return (
     <Box className={classes.footerContainer} sx={{ width: '100%' , position: "relative" , left: "50%", transform: "translateX(-50%)", }} marginTop='5vh' backgroundColor='#FCFAF0'>
         <Grid className={classes.gridContainer} container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} columns={16}>
-            <Grid item lg={7} md={9} sm={9} xs={16}>
+            <Grid item lg={7} md={9} sm={9} xs={16} >
                 <Link href="#" underline="none" >
                     <Typography variant="h6" component="div" className={classes.linkItem} textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}> BKLuxuryHotel </Typography>
                 </Link>

@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { Component } from "react";
 import Slider from "react-slick";
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import '../asset/css/home.css';
 
 const photo =[
@@ -40,9 +41,10 @@ export default class SimpleSlider extends Component {
           return(
             <div className="slide-container" >
               <p><span>-</span> Welcome <span>-</span></p>
-              <h2>BK Luxury Hotel</h2>
+              <Typography className="brand">BK Luxury Hotel</Typography>
               <Button className="dis-btn" style={{backgroundColor: "#ECD4BB"}} variant="text">Discover Now</Button>
-              <img height="100%" src={photo.url}></img>
+             
+              <img height="100%" src={photo.url} className="img-slider"></img>
             </div>
           )
         } )}
