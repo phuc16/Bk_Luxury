@@ -1,5 +1,6 @@
 import { CardMedia, Typography } from "@material-ui/core";
 import { Grid, Box, Card } from "@material-ui/core";
+import Button from '@mui/material/Button';
 import Offer1 from "../images/offer1.png"
 import Offer2 from "../images/offer2.png"
 import Offer3 from "../images/offer3.png"
@@ -52,7 +53,7 @@ export default function RoomOffer() {
         <Grid container direction="row" justifyContent="center">
             <Grid item xs={12}>
                 <Box sx={{
-                    marginY: "10%",
+                    marginY: "5%",
                     bgcolor: "#f8f8f8",
                 }}>
                     <Grid container direction="column" spacing={5}>
@@ -71,6 +72,12 @@ export default function RoomOffer() {
                                     <OfferCard Offer={Offers.o3} />
                                 </Grid>
                             </Grid>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Button variant="outlined" style={{
+                                color : "#a77b5a",
+                                borderColor: "#a77b5a",
+                            }}>VIEW ALL</Button>
                         </Grid>
                     </Grid>
                 </Box>
