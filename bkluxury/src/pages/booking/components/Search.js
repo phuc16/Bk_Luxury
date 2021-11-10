@@ -1,0 +1,56 @@
+import * as React from 'react';
+import TextField from '@mui/material/TextField';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DatePicker from '@mui/lab/DatePicker';
+import {Grid, Typography} from '@mui/material';
+import UpDownButton from './UpDownButton';
+
+export default function BasicDatePicker() {
+  const [valueCheckIn, setValueCheckIn] = React.useState(null);
+  const [valueCheckOut, setValueCheckOut] = React.useState(null);
+
+  return (
+    //Date check-in, check-out
+    <>
+    <Grid container>
+        <Grid item md={3}>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePicker
+                label="Check-in"
+                value={valueCheckIn}
+                onChange={(newValue) => {
+                    setValueCheckIn(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+            />
+            </LocalizationProvider>
+        </Grid>
+        <Grid item md={3}>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePicker
+                label="Check-out"
+                value={valueCheckOut}
+                onChange={(newValue) => {
+                    setValueCheckOut(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+            />
+            </LocalizationProvider>
+        </Grid>
+    </Grid>
+
+    {/* Submit quantity */}
+    <Grid container sx={{marginTop: 2}}>
+        <Grid item md={2}>
+            <Typography align="center" variant="inherit">Adults</Typography>
+            <UpDownButton />
+        </Grid>
+        <Grid item md={2}>
+            <Typography align="center" variant="inherit">Children</Typography>
+            <UpDownButton />
+        </Grid>
+    </Grid>
+    </>
+  );
+}
