@@ -1,9 +1,8 @@
 import * as React from 'react';
-import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
-import {Grid, Typography} from '@mui/material';
+import {Grid, Typography, TextField} from '@mui/material';
 import UpDownButton from './UpDownButton';
 
 export default function BasicDatePicker() {
@@ -29,7 +28,7 @@ export default function BasicDatePicker() {
         <Grid item md={3}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
-                label="Check-out"
+                label="Check-out"   
                 value={valueCheckOut}
                 onChange={(newValue) => {
                     setValueCheckOut(newValue);
@@ -40,7 +39,7 @@ export default function BasicDatePicker() {
         </Grid>
     </Grid>
 
-    {/* Submit quantity */}
+    {/* Submit quantity
     <Grid container sx={{marginTop: 2}}>
         <Grid item md={2}>
             <Typography align="center" variant="inherit">Adults</Typography>
@@ -49,6 +48,19 @@ export default function BasicDatePicker() {
         <Grid item md={2}>
             <Typography align="center" variant="inherit">Children</Typography>
             <UpDownButton />
+        </Grid>
+    </Grid> */}
+
+    {/* Submit name */}
+    <Grid container sx={{marginTop: 2}} justifyContent='center'>
+        <Grid item md={3}>
+            <TextField
+            id="standard-search"
+            label="Search room..."
+            type="search"
+            variant="outlined"
+            onChange=""
+            />
         </Grid>
     </Grid>
     </>

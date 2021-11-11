@@ -1,34 +1,65 @@
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
-import {Box, Container, Tab} from '@mui/material';
+import {Container} from '@mui/material';
 import React from 'react';
-import Search from './components/Search';
 import RoomInfo from './components/RoomInfo';
+import { useState } from 'react';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DatePicker from '@mui/lab/DatePicker';
+import {Grid, TextField} from '@mui/material';
 
 export default function Booking(){
-    const [value, setValue] = React.useState('1');
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
+    // const [value, setValue] = React.useState('1');
+    // const handleChange = (event, newValue) => {
+    //     setValue(newValue);
+    // };
+    const [valueCheckIn, setValueCheckIn] = React.useState(null);
+    const [valueCheckOut, setValueCheckOut] = React.useState(null);
+    const [searchItem, setSearchItem] = useState('');
 
     return (
         <Container sx={{marginTop: 2}}>
-            <Search />
-            <Box sx={{ width: '100%', typography: 'body1' }}>
-            <TabContext value={value}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <TabList onChange={handleChange} aria-label="lab API tabs example">
-                    <Tab label="Item One" value="1" />
-                    <Tab label="Item Two" value="2" />
-                    <Tab label="Item Three" value="3" />
-                </TabList>
-                </Box>
-                <TabPanel value="1"><RoomInfo /><RoomInfo /></TabPanel>
-                <TabPanel value="2"><RoomInfo /></TabPanel>
-                <TabPanel value="3"><RoomInfo /></TabPanel>
-            </TabContext>
-            </Box>
+            <Grid sx={{backgroundColor: '#FCEBD7'}}>
+            <Grid container >
+                <Grid item md={3} sx={{margin: 2}}>
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <DatePicker
+                        label="Check-in"
+                        value={valueCheckIn}
+                        onChange={(newValue) => {
+                            setValueCheckIn(newValue);
+                        }}
+                        renderInput={(params) => <TextField {...params} sx={{backgroundColor: "#FCFAF0"}}/>}
+                    />
+                    </LocalizationProvider>
+                </Grid>
+                <Grid item md={3} sx={{margin: 2}}>
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <DatePicker
+                        label="Check-out"   
+                        value={valueCheckOut}
+                        onChange={(newValue) => {
+                            setValueCheckOut(newValue);
+                        }}
+                        renderInput={(params) => <TextField {...params} sx={{backgroundColor: "#FCFAF0"}}/>}
+                    />
+                    </LocalizationProvider>
+                </Grid>
+                {/* Submit name */}
+                <Grid item md={3} sx={{margin: 2}}>
+                    <TextField
+                    id="standard-search"
+                    label="Search room..."
+                    type="search"
+                    variant="outlined"
+                    onChange={event =>{setSearchItem(event.target.value)}}
+                    sx={{backgroundColor: "#FCFAF0"}}
+                    />
+                </Grid>
+            </Grid>
+            </Grid>
+
+            {/* Room Info */}
+            <RoomInfo searchItem={searchItem}/>
         </Container>
     );
 }
