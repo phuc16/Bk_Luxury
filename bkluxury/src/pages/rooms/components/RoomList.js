@@ -65,7 +65,7 @@ export const RoomList = {
     },
     ThirdPerson: {
         name: "THIRD PERSON SUPPLEMENTS",
-        description: "Children 5 years old or younger: free of charge.Children between 6 and 11 years old: Without breakfast: 22.50 USD++ per child per night | With breakfast: 30.00 USD++ per child per night.Children 12 years old or older, and adults: Without breakfast: 45.00 USD++ per person per night | With breakfast: 60.00 USD++ per person per night.Maximum number of occupants per room: 3 persons including children.Supplements are subject to 5% service charge and 10% tax.",
+        description: "Free of charge with children 5 years old or younger. With Children between 6 and 11 years old, if without breakfast: 22.50 USD++ per child per night, With breakfast: 30.00 USD++ per child per night. In case children 12 years old or older, and adults: Without breakfast: 45.00 USD++ per person per night, With breakfast: 60.00 USD++ per person per night. Each room with maximum number of occupants per room: 3 persons including children. Supplements are subject to 5% service charge and 10% tax.",
         img: ImageDeluxe,
         area: '0 SQUARE METRES',
         equip: [
