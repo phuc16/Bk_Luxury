@@ -43,7 +43,7 @@ export default function GuestReview() {
                                         </Grid>
                                         <Grid item xs={12} >
                                             <Grid container direction="row" justifyContent="center">
-                                                <Grid item xs={8}>
+                                                <Grid item xs={10}>
                                                     <Typography variant="body2" align="left">“I have been staying at your hotel for a total of 78 days on and off since late July in your Club rooms.  I want to commend you and all of your staff on making my stays so good.  Your team have looked after me very well indeed.  I spend a great deal of time staying in hotels right around the world as my job means I travel very frequently.  I have to say that my experience at the InterContinental Hotel is always fantastic.”</Typography>
                                                 </Grid>
                                             </Grid>

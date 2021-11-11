@@ -38,7 +38,9 @@ export default function RoomEquip({ equip, area }) {
                         })
                     }
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} style={{
+                    borderTop: "1px solid #a77b5a"
+                }}>
                     <Typography variant="body1">{area}</Typography>
                 </Grid>
             </Grid>

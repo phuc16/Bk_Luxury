@@ -42,7 +42,8 @@ export const RoomList = {
             EquipmentList.Breakfast,
             EquipmentList.Wifi,
             EquipmentList.AirConditioner
-        ]
+        ],
+        link: "ClubRoom"
     },
     SuperiorRoom: {
         name: "SUPERIOR ROOMS",
@@ -53,7 +54,8 @@ export const RoomList = {
             EquipmentList.KingBed,
             EquipmentList.Wifi,
             EquipmentList.AirConditioner
-        ]
+        ],
+        link: "SuperiorRoom"
     },
     DeluxeRoom: {
         name: "DELUXE ROOMS",
@@ -64,6 +66,7 @@ export const RoomList = {
             EquipmentList.KingBed,
             EquipmentList.Wifi,
             EquipmentList.AirConditioner
-        ]
+        ],
+        link: "DeluxeRoom"
     }
 }

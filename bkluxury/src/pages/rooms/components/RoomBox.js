@@ -17,7 +17,7 @@ export default function RoomBox({ Room }) {
                 }}>
                     <Grid container direction="row" spacing={2} alignItems="center" justifyContent="space-between">
                         <Grid item xs={12} sm={12} md={12} lg={4}><RoomImage RoomImage={Room.img} /></Grid>
-                        <Grid item xs={12} sm={7} md={7} lg={5}><RoomDesc Name={Room.name} Desc={Room.description} /></Grid>
+                        <Grid item xs={12} sm={7} md={7} lg={5}><RoomDesc Name={Room.name} Desc={Room.description} link={Room.link} /></Grid>
                         <Grid item xs={12} sm={5} md={5} lg={3}><RoomEquip equip={Room.equip} area={Room.area} /></Grid>
                     </Grid>
                 </Card>
