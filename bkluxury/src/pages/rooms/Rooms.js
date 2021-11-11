@@ -1,11 +1,11 @@
-import Page1 from './page1'
-import Page2 from './page2'
-import Page3 from './page3'
+import ClubRoom from './ClubRoom'
+import SuperiorRoom from './SuperiorRoom'
+import DeluxeRoom from './DeluxeRoom'
 
 export default function Rooms() {
     return (
-        <Page1 />
-        //<Page2 />
-        //<Page3 />
+        //<ClubRoom />
+        //<SuperiorRoom />
+        <DeluxeRoom />
     );
 }

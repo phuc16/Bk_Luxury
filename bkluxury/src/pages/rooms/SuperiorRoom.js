@@ -1,18 +1,17 @@
-import Banner from './components/Banner3';
-import Main from './components/Main3'
-import MainContent from './components/MainContent3'
+import Banner from './components/Banner2';
+import Main from './components/Main2'
+import MainContent from './components/MainContent2'
 import RoomBox from './components/RoomBox'
 import RoomBoxRevert from './components/RoomBoxRevert';
-import MoreRoom from './components/MoreRoom3';
-import { RoomList } from './components/RoomList3';
+import MoreRoom from './components/MoreRoom2';
+import { RoomList } from './components/RoomList2';
 import themeRooms from './components/Theme';
 import {MuiThemeProvider } from "@material-ui/core/styles";
 
-export default function Page3() {
+export default function SuperiorRoom() {
     const Rooms = [
-        RoomList.DeluxeKingRoom,
-        RoomList.DeluxeTwinRoom,
-        RoomList.DeluxeCornerRoom,
+        RoomList.SuperiorKingRoom,
+        RoomList.SuperiorTwinRoom,
         RoomList.ThirdPerson
     ]
 
