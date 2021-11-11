@@ -66,8 +66,8 @@ const MoreRooms = {
 function MoreRoomCard({ Opt }) {
     return (
         <Card>
-            <Grid container direction="column" spacing={2} justifyContent="space-between">
-                <Grid item xs={12}>
+            <Grid container direction="row" spacing={2} justifyContent="space-between">
+                <Grid item xs={12} sm={12} md={12}>
                     <CardMedia
                         component="img"
                         alt="Opt"
@@ -75,13 +75,13 @@ function MoreRoomCard({ Opt }) {
                         title="Opt"
                     />
                 </Grid>
-                <Grid item xs={12}>
-                    <Typography style={{color: "#a77b5a"}} variant="h5">{Opt.title}</Typography>
+                <Grid item xs={12} sm={12} md={12}>
+                    <Typography style={{color: "#a77b5a" }} variant="h5">{Opt.title}</Typography>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={12} md={12}>
                     <Typography style={{textAlign: "left", padding:"5%"}} variant="body2">{Opt.content}</Typography>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={12} md={12}>
                     <RoomEquip equip={Opt.equip} area={Opt.area}/>
                 </Grid>
             </Grid>

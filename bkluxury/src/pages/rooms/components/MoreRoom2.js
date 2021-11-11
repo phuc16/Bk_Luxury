@@ -65,7 +65,7 @@ const MoreRooms = {
 function MoreRoomCard({ Opt }) {
     return (
         <Card>
-            <Grid container direction="column" spacing={2} justifyContent="space-between">
+            <Grid container direction="row" spacing={2} justifyContent="space-between">
                 <Grid item xs={12}>
                     <CardMedia
                         component="img"
