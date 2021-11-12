@@ -29,7 +29,7 @@ const textcolor = "#1A1810";
 export default function Footer(){
     const classes = useStyles(); 
     return (
-    <Box className={classes.footerContainer} sx={{ width: '100%' , position: "relative" , left: "50%", transform: "translateX(-50%)", }} marginTop='5vh' backgroundColor='#FCFAF0'>
+    <Box className={classes.footerContainer} sx={{ width: '100%' , position: "relative" , left: "50%", transform: "translateX(-50%)", }} marginTop='10vh' backgroundColor='#FCFAF0'>
         <Grid className={classes.gridContainer} container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} columns={16}>
             <Grid item lg={7} md={9} sm={9} xs={16} >
                 <Link href="#" underline="none" >

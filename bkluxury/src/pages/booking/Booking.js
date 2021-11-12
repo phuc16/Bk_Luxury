@@ -17,7 +17,7 @@ export default function Booking(){
     const [searchItem, setSearchItem] = useState('');
 
     return (
-        <Container sx={{marginTop: 2}}>
+        <Container sx={{marginTop: 2}} style={{marginTop: '64px'}}>
             <Grid sx={{backgroundColor: '#FCEBD7'}}>
             <Grid container >
                 <Grid item md={3} sx={{margin: 2}}>
