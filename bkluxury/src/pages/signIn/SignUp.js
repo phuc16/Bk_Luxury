@@ -62,7 +62,7 @@ export default function SignUp() {
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} style={{marginTop: '64px'}}>
             <Grid container>
                 <Grid item>
                     <Controls.Input
