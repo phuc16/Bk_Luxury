@@ -1,17 +1,18 @@
-import Banner from './components/Banner1';
+import Banner from './components/Banner3';
+import Main from './components/Main3'
+import MainContent from './components/MainContent3'
 import RoomBox from './components/RoomBox'
 import RoomBoxRevert from './components/RoomBoxRevert';
-import MoreRoom from './components/MoreRoom1';
-import { RoomList } from './components/RoomList';
+import MoreRoom from './components/MoreRoom3';
+import { RoomList } from './components/RoomList3';
 import themeRooms from './components/Theme';
 import {MuiThemeProvider } from "@material-ui/core/styles";
-import Main from './components/Main1'
-import MainContent from './components/MainContent1'
 
-export default function ClubRoom() {
+export default function DeluxeRoom() {
     const Rooms = [
-        RoomList.ClubKingRoom,
-        RoomList.ClubTwinRoom,
+        RoomList.DeluxeKingRoom,
+        RoomList.DeluxeTwinRoom,
+        RoomList.DeluxeCornerRoom,
         RoomList.ThirdPerson
     ]
 
@@ -20,7 +21,6 @@ export default function ClubRoom() {
                 <Banner />
                 <Main />
                 <MainContent />
-
                 {
                     Rooms.map(e => {
                         if (Rooms.indexOf(e) % 2 === 0) {
@@ -34,6 +34,7 @@ export default function ClubRoom() {
                         }
                     })
                 }
+
                 <MoreRoom />
         </MuiThemeProvider>
     );

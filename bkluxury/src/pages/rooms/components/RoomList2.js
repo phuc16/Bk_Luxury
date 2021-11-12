@@ -1,6 +1,6 @@
-import ImageClub from '../images1/ClubKing.png'
-import ImageSuper from '../images1/ClubTwin.png'
-import ImageDeluxe from '../images1/Term.png'
+import ImageSuperKing from '../images2/King.png'
+import ImageSuperTwin from '../images2/Twin.png'
+import ImageSuperTerm from '../images2/Term.png'
 import IconCouch from '@mui/icons-material/Weekend'
 import IconWifi from '@mui/icons-material/Wifi'
 import IconCoffee from '@mui/icons-material/Coffee'
@@ -37,42 +37,36 @@ const EquipmentList = {
 
 export const RoomList = {
 
-    ClubKingRoom: {
-        name: "CLUB KING ROOM",
-        description: "Perfect choice for discerning travelers who are seeking exclusive privileges with free wifi access, iPod deck, espresso machine, private check in, breakfast, all day refreshments and evening cocktails in our spacious and chic Club InterContinental Lounge at InterContinental Saigon Hotel. Non smoking rooms only.",
-        img: ImageClub,
+    SuperiorKingRoom: {
+        name: "SUPERIOR KING DELUXE",
+        description: "Our spacious and elegant rooms at InterContinental Saigon Hotel provide more than just comfortable accommodation with complimentary high speed internet as well as panoramic view to the tree-lined streets next to Notre Dame Cathedral. Non smoking rooms only.",
+        img: ImageSuperKing,
         area: '38 SQUARE METRES',
         equip: [
-            EquipmentList.Lounge,
             EquipmentList.Wifi,
             EquipmentList.KingBed,
             EquipmentList.AirConditioner,
-            EquipmentList.Breakfast
         ]
     },
-    ClubTwinRoom: {
-        name: "CLUB TWIN ROOM",
-        description: "These premium rooms are part of the Club InterContinental experience, designed to make sure your needs are taken care of, from check-in to the moment you leave. Ideal for both short and long stays, business travelers will enjoy exclusive privileges such as free wifi access, iPod deck, espresso machine, private check in, breakfast, all day refreshments and evening cocktails in our spacious and chic Club InterContinental Lounge at InterContinental Saigon Hotel. Non smoking rooms only.",
-        img: ImageSuper,
+    SuperiorTwinRoom: {
+        name: "SUPERIOR TWIN DELUXE",
+        description: "Have a restful stay in our superior rooms at InterContinental Saigon Hotel offering terrific views over Saigon streets and featuring elegant interiors with modern flair and smart technology such as flat screen TVs. Take care of business with high-speed Internet or Wi-Fi available for a charge in your separate work corner. Non smoking rooms only.",
+        img: ImageSuperTwin,
         area: '38 SQUARE METRES',
         equip: [
-            EquipmentList.Lounge,
             EquipmentList.Wifi,
             EquipmentList.TwinBed,
             EquipmentList.AirConditioner,
-            EquipmentList.Breakfast
         ]
     },
     ThirdPerson: {
         name: "THIRD PERSON SUPPLEMENTS",
         description: "Free of charge with children 5 years old or younger. With Children between 6 and 11 years old, if without breakfast: 22.50 USD++ per child per night, With breakfast: 30.00 USD++ per child per night. In case children 12 years old or older, and adults: Without breakfast: 45.00 USD++ per person per night, With breakfast: 60.00 USD++ per person per night. Each room with maximum number of occupants per room: 3 persons including children. Supplements are subject to 5% service charge and 10% tax.",
-        img: ImageDeluxe,
+        img: ImageSuperTerm,
         area: '0 SQUARE METRES',
         equip: [
-            EquipmentList.Lounge,
             EquipmentList.Wifi,
             EquipmentList.AirConditioner,
-            EquipmentList.Breakfast
         ]
     }
 }

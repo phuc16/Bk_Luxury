@@ -19,22 +19,6 @@ themeRooms.typography.h1 = {
     },
 };
 
-themeRooms.typography.h2 = {
-    fontWeight:"400",
-    [themeRooms.breakpoints.up('md')]: {
-        fontSize: '1.5rem',
-    },
-    [themeRooms.breakpoints.up('lg')]: {
-        fontSize: '2rem',
-    },
-    [themeRooms.breakpoints.down('sm')]: {
-        fontSize: '1.5rem',
-    },
-    [themeRooms.breakpoints.down('xs')]: {
-        fontSize: '1rem',
-    },
-}
-
 themeRooms.typography.h3 = {
     fontWeight:"100",
     [themeRooms.breakpoints.up('md')]: {
@@ -68,7 +52,7 @@ themeRooms.typography.h4 = {
 }
 
 themeRooms.typography.h5 = {
-    fontWeight:"600",
+    fontWeight:"400",
     [themeRooms.breakpoints.up('md')]: {
         fontSize: '1.3rem',
     },
@@ -76,20 +60,20 @@ themeRooms.typography.h5 = {
         fontSize: '1.4rem',
     },
     [themeRooms.breakpoints.down('sm')]: {
-        fontSize: '1rem',
+        fontSize: '1.2rem',
     },
     [themeRooms.breakpoints.down('xs')]: {
-        fontSize: '0.8rem',
+        fontSize: '1rem',
     },
 }
 
 themeRooms.typography.h6 = {
-    fontWeight: "400",
+    fontWeight: "600",
     [themeRooms.breakpoints.up('md')]: {
-        fontSize: '0.9rem',
+        fontSize: '1.2rem',
     },
     [themeRooms.breakpoints.up('lg')]: {
-        fontSize: '1.2rem',
+        fontSize: '1.3rem',
     },
     [themeRooms.breakpoints.down('sm')]: {
         fontSize: '0.9rem',
@@ -98,6 +82,7 @@ themeRooms.typography.h6 = {
         fontSize: '0.7rem',
     },
 };
+
 
 themeRooms.typography.body1 = {
     fontWeight: "400",
@@ -130,5 +115,7 @@ themeRooms.typography.body2 = {
         fontSize: '0.7rem',
     },
 };
+
+
 
 export default themeRooms;
