@@ -1,9 +1,7 @@
 import { Box} from "@material-ui/core";
 import { Typography } from "@material-ui/core";
-import { border } from "@mui/system";
 
-
-export default function RoomDesc({ Name, Desc }) {
+export default function RoomDesc({ Name, Desc, link }) {
     return (
             <Box sx={{
                 textAlign: "left",

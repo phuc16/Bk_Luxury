@@ -9,6 +9,7 @@ import IconKingBed from '@mui/icons-material/KingBed'
 import IconTwinBed from '@mui/icons-material/Bed';
 import IconAC from '@mui/icons-material/AcUnit'
 import RoomEquip from "./RoomEquip";
+import {  NavLink } from "react-router-dom";
 
 const EquipmentList = {
     Lounge: {
@@ -47,7 +48,8 @@ const MoreRooms = {
             EquipmentList.KingBed,
             EquipmentList.Wifi,
             EquipmentList.AirConditioner
-        ]
+        ],
+        link: "ClubRoom"
     },
     o2: {
         title: "Deluxe Room",
@@ -58,11 +60,13 @@ const MoreRooms = {
             EquipmentList.KingBed,
             EquipmentList.Wifi,
             EquipmentList.AirConditioner
-        ]
+        ],
+        link: "DeluxeRoom"
     }
 }
 
 function MoreRoomCard({ Opt }) {
+    let str = "/" + Opt.link
     return (
         <Card>
             <Grid container direction="row" spacing={2} justifyContent="space-between">
@@ -75,7 +79,9 @@ function MoreRoomCard({ Opt }) {
                     />
                 </Grid>
                 <Grid item xs={12}>
-                    <Typography style={{color: "#a77b5a"}} variant="h5">{Opt.title}</Typography>
+                    <NavLink style={{textDecoration: "none"}}  to={str}><Typography variant="h5" style={{
+                        color: "#a77b5a",
+                    }}>{Opt.title}</Typography></NavLink> 
                 </Grid>
                 <Grid item xs={12}>
                     <Typography style={{textAlign: "left", padding:"5%"}} variant="body2">{Opt.content}</Typography>

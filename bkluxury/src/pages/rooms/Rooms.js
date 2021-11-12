@@ -4,8 +4,8 @@ import DeluxeRoom from './DeluxeRoom'
 
 export default function Rooms() {
     return (
-        //<ClubRoom />
+        <ClubRoom />
         //<SuperiorRoom />
-        <DeluxeRoom />
+        //<DeluxeRoom />
     );
 }
