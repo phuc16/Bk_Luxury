@@ -5,9 +5,9 @@ import {
 } from "react-router-dom";
 
 import ClubRoom from './ClubRoom';
+import DeluxeRoom from './DeluxeRoom'
+import SuperiorRoom from "./SuperiorRoom";
 import AllRooms from "./AllRooms";
-
-
 
 
 export default function Rooms() {
@@ -19,6 +19,12 @@ export default function Rooms() {
                 </Route>
                 <Route exact path="/ClubRoom">
                     <ClubRoom/>
+                </Route>
+                <Route exact path="/DeluxeRoom">
+                    <DeluxeRoom/>
+                </Route>
+                <Route exact path="/SuperiorRoom">
+                    <SuperiorRoom/>
                 </Route>
             </div>
         </Router>
