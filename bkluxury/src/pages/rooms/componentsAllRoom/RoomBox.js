@@ -1,4 +1,3 @@
-import Box from '@material-ui/core/Box'
 import RoomDesc from './RoomDesc'
 import RoomImage from './RoomImage'
 import RoomEquip from './RoomEquip'

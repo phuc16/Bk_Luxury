@@ -1,8 +1,7 @@
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from 'react-router-dom';
 
 import Booking from './booking/Booking';
@@ -10,6 +9,7 @@ import Home from './home/Home';
 import Rooms from './rooms/Rooms';
 import Services from './services/Services';
 import SignIn from './signIn/SignIn';
+import SignUp from './signIn/SignUp'
 
 import Footer from '../components/footer';
 import Header from '../components/header';
@@ -38,6 +38,9 @@ export default function Routes(){
           </Route>
           <Route exact path="/services">
             <Services />
+          </Route>
+          <Route exact path="/signup">
+            <SignUp/>
           </Route>
           <Route exact path="/signin">
             <SignIn/>

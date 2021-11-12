@@ -1,4 +1,4 @@
-import { CardMedia, Card } from "@material-ui/core";
+import { CardMedia } from "@material-ui/core";
 
 export default function RoomImage({ RoomImage }) {
     return (

@@ -27,7 +27,6 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import RoomServiceIcon from '@mui/icons-material/RoomService';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
-import { color } from "@mui/system";
 
 // REACT APP IMPORTS
 

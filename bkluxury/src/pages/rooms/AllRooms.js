@@ -4,7 +4,6 @@ import RoomBoxRevert from './componentsAllRoom/RoomBoxRevert';
 import RoomOffer from './componentsAllRoom/RoomOffer';
 import GuestReview from './componentsAllRoom/GuestReview';
 import { RoomList } from './componentsAllRoom/RoomList';
-import { createTheme } from "@material-ui/core/styles";
 import themeRooms from './componentsAllRoom/Theme';
 import { MuiThemeProvider } from "@material-ui/core/styles";
 

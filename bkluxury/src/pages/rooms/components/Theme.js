@@ -1,5 +1,4 @@
-import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
-import { createTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import { createTheme } from "@material-ui/core/styles";
 
 const themeRooms = createTheme()
 

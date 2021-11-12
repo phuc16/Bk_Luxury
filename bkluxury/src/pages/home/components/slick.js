@@ -44,7 +44,7 @@ export default class SimpleSlider extends Component {
               <Typography className="brand">BK Luxury Hotel</Typography>
               <Button className="dis-btn" style={{backgroundColor: "#ECD4BB"}} variant="text">Discover Now</Button>
              
-              <img height="100%" src={photo.url} className="img-slider"></img>
+              <img height="100%" src={photo.url} className="img-slider" alt=''></img>
             </div>
           )
         } )}

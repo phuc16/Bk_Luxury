@@ -1,7 +1,7 @@
 import RoomDesc from './RoomDesc'
 import RoomImage from './RoomImage'
 import RoomEquip from './RoomEquip'
-import { Card, Box, Grid } from '@material-ui/core'
+import { Card, Grid } from '@material-ui/core'
 
 
 

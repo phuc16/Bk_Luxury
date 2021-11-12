@@ -1,5 +1,4 @@
 import { Grid, Typography, Box, Card, Divider, CardMedia } from "@material-ui/core"
-import { padding } from "@mui/system"
 import avatar from "../images/avatar.png"
 
 export default function GuestReview() {
