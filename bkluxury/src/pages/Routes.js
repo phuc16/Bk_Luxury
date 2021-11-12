@@ -1,17 +1,18 @@
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from 'react-router-dom';
 
 import Booking from './booking/Booking';
 import Home from './home/Home';
 import Rooms from './rooms/Rooms';
 import Services from './services/Services';
 import SignIn from './signIn/SignIn';
-import Footer from "../components/footer";
-import Header from "../components/header";
+
+import Footer from '../components/footer';
+import Header from '../components/header';
 
 export default function Routes(){
   return(
