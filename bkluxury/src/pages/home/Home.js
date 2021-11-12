@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-
 import SimpleSlider from './components/slick';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -45,10 +42,4 @@ export default function Home(){
           </div>
         </div>
       );
-=======
-import Demo from './components/Demo';
-
-export default function Home(){
-    return(<Demo title='Home Page' />);
->>>>>>> 18ddc810d56020054c0684efab64e65bc7205185
 }
