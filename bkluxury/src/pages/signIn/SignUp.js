@@ -11,7 +11,7 @@ const initialFValues = {
     passwordConfirm: '',
     country: '',
     phoneNumber: '',
-    dob: new Date(),
+    dob: null,
     showPassword: false
 }
 
@@ -35,8 +35,8 @@ export default function SignUp() {
             temp.country = fieldValues.country ? "" : "This field is required."
         if ('phoneNumber' in fieldValues)
             temp.mobile = temp.phoneNumber = fieldValues.phoneNumber ? ((/^[0-9]\w{0,10}$/).test(fieldValues.phoneNumber) ? "" : "Phone number is not valid.") : "This field is required."
-        if ('departmentId' in fieldValues)
-            temp.departmentId = fieldValues.departmentId.length !== 0 ? "" : "This field is required."
+        if ('dob' in fieldValues)
+            temp.dob = fieldValues.dob !== null ? "" : "This field is required."
         setErrors({
             ...temp
         })
@@ -135,6 +135,7 @@ export default function SignUp() {
                         name="dob"
                         value={values.dob}
                         onChange={handleInputChange}
+                        error={errors.dob}
                     />
                     <div>
                         <Controls.Button
