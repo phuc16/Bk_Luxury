@@ -10,7 +10,6 @@ import SuperiorRoom from "./SuperiorRoom";
 import AllRooms from "./AllRooms";
 import ScrollToTop from "./ScrollToTop";
 
-
 export default function Rooms() {
     return (
         <Router>
