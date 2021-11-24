@@ -89,7 +89,7 @@ exports.delete = (req, res) => {
       });  
 };
 
-// Delete all Tutorials from the database.
+// Delete all Rooms from the database.
 exports.deleteAll = (req, res) => {
     Room.delete(req.params.number, (err, data) => {
         if (err) {
