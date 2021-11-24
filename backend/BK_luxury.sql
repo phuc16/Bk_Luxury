@@ -28,6 +28,7 @@ create table if not exists ROOM(
 create table if not exists SERVICE(
 	roomNumber		int				not null,
     service			char(50)		not null
+    primary key (roomNumber, service)
 );	
 
 create table if not exists BOOKING(
