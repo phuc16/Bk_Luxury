@@ -31,11 +31,12 @@ create table if not exists SERVICE(
 );	
 
 create table if not exists BOOKING(
+    id              int             not null,
 	accountId		int				not null,
     roomNumber		int				not null,
     checkIn			date			not null,
     checkOut		date			not null,
-    primary key(accountId, roomNumber, checkIn, checkOut)
+    primary key(id)
 );
 
 alter table SERVICE add FOREIGN KEY (roomNumber) REFERENCES ROOM(number);
