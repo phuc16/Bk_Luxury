@@ -2,7 +2,6 @@ const sql = require("./db.js")
 
 //constructor
 const Account = function(account) {
-    this.id = account.id;
     this.firstName = account.firstName;
     this.lastName = account.lastName;
     this.email = account.email;
@@ -13,7 +12,7 @@ const Account = function(account) {
 }
 
 Account.create = (newAccount, result) => {
-    sql.query("INSERT INTO account SET ?", newAccount, (err, res) => {
+    sql.query("INSERT INTO account SET ?", newAccount, (err, res, fields) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
@@ -77,7 +76,7 @@ Account.delete = (id, result) => {
     });
 };
 
-Account.deleteAll = result => {
+Account.deleteAll = (result) => {
     sql.query("DELETE FROM account", (err, res) => {
         if (err) {
             console.log("error: ", err);
@@ -88,6 +87,25 @@ Account.deleteAll = result => {
         console.log(`deleted ${res.affectedRows} accounts`);
         result(null, res);
     });
+};
+
+Account.logIn = (input, result) => {
+    sql.query(`SELECT * FROM account WHERE email = '${input.email}';`, (err, res, fields) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        if (res.length){
+            if (res[0].password === input.password){
+                result(null, {completed: true, result: res[0]});
+                return;
+            }
+        }
+        result(null, {completed: false, result: null});
+    });
+
+    
 };
 
 module.exports = Account;

@@ -11,7 +11,6 @@ exports.create = (req, res) => {
 
     // Create an Account
     const account = new Account({
-        id: req.body.id,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
@@ -99,4 +98,22 @@ exports.deleteAll = (req, res) => {
             });
         else res.send({ message: "All accounts have been deleted successfully!" });
     });
+};
+
+// Authenticate account log in
+exports.logIn = (req, res) => {
+    Account.logIn(req.body.input, (err, data) => {
+        if (err) {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred."
+            }); 
+        } 
+        else if (!data.completed){
+            res.status(404).send({
+                message: "Email or password incorrect"
+            });
+        }
+        else res.send(`Log in completed. Welcome user id: ${data.result.id} email: ${data.result.email}`);
+      }); 
 };

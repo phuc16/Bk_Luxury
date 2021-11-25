@@ -5,7 +5,7 @@ create table if not exists ACCOUNT(
 	id				int				auto_increment,
     firstName		char(20)		not null,
     lastName		char(20)		not null,
-    email			char(50)		not null,
+    email			char(50)		unique,
     password		char(20)		not null,
     dob				date			not null,
     phone			char(10)		not null,
@@ -27,7 +27,7 @@ create table if not exists ROOM(
 
 create table if not exists SERVICE(
 	roomNumber		int				not null,
-    service			char(50)		not null
+    service			char(50)		not null,
     primary key (roomNumber, service)
 );	
 
