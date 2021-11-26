@@ -5,12 +5,11 @@ const Room = function(room) {
     this.number = room.number;
     this.description = room.description;
     this.picture = room.picture;
+    this.capacity = room.capacity;
+    this.square = room.square;
+    this.price = room.price;
     this.type = room.type;
     this.status = room.status;
-    this.capacity = room.capacity;
-    this.price = room.price;
-    this.square = room.square;
-    this.service = room.service;
 }
 
 Room.create = (newRoom, result) => {

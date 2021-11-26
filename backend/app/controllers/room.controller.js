@@ -21,8 +21,8 @@ exports.create = (req, res) => {
         status: req.body.status
     });
 
-    // Save Tutorial in the database
-    Tutorial.create(room, (err, data) => {
+    // Save Room in the database
+    Room.create(room, (err, data) => {
         if (err)
             res.status(500).send({
                 message:
@@ -46,7 +46,7 @@ exports.findAll = (req, res) => {
     });
   };
 
-// Find a single Tutorial with number
+// Find a single Room with number
 exports.findByNumber = (req, res) => {
     Room.findByNumber(req.params.number, (err, data) => {
         if (err) {
@@ -91,7 +91,7 @@ exports.delete = (req, res) => {
 
 // Delete all Rooms from the database.
 exports.deleteAll = (req, res) => {
-    Room.delete(req.params.number, (err, data) => {
+    Room.deleteAll(req.params.number, (err, data) => {
         if (err) {
             if (err.kind === "not_found") {
                 res.status(404).send({
