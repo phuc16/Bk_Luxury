@@ -13,6 +13,8 @@ import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import axios from 'axios';
+import TextField from '@mui/material/TextField';
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -21,31 +23,11 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-  return {
-    name,
-    calories,
-    fat,
-    carbs,
-    protein,
-  };
-}
-
 const rows = [
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Donut', 452, 25.0, 51, 4.9),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Honeycomb', 408, 3.2, 87, 6.5),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Jelly Bean', 375, 0.0, 94, 0.0),
-  createData('KitKat', 518, 26.0, 65, 7.0),
-  createData('Lollipop', 392, 0.2, 98, 0.0),
-  createData('Marshmallow', 318, 0, 81, 2.0),
-  createData('Nougat', 360, 19.0, 9, 37.0),
-  createData('Oreo', 437, 18.0, 63, 4.0),
+  
 ];
+
+
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -127,6 +109,12 @@ const headCells = [
     label: 'Status',
   },
   {
+    id: 'type',
+    numeric: false,
+    disablePadding: false,
+    label: 'Type',
+  },
+  {
     id: 'Operator',
     numeric: false,
     disablePadding: false,
@@ -136,7 +124,7 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
-  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
+  const { order, orderBy, onRequestSort } =
     props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
@@ -198,9 +186,16 @@ export default function EnhancedTable() {
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
+  const [datas, setData] = React.useState([]);
+  React.useEffect(()=>{
+    axios.get('http://localhost:8080/room')
+    .then(response=>{
+      console.log(response.data);
+      setData(response.data);
+    })
+    .catch(error=>{console.log(error)})
+  }, [])    
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -237,7 +232,14 @@ export default function EnhancedTable() {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-
+  const [values, setValues] = React.useState([]);
+  const handleInputChange = e => {
+    const { name, value } = e.target
+    setValues({
+        ...values,
+        [name]: value
+    })
+  }
 
 
   const isSelected = (name) => selected.indexOf(name) !== -1;
@@ -266,38 +268,39 @@ export default function EnhancedTable() {
             <TableBody>
               {/* if you don't need to support IE11, you can replace the `stableSort` call with:
                  rows.slice().sort(getComparator(order, orderBy)) */}
-              {stableSort(rows, getComparator(order, orderBy))
+              {stableSort(datas, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
-                  const isItemSelected = isSelected(row.name);
+                .map((data, index) => {
+                  const isItemSelected = isSelected(data.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.name)}
+                      onClick={(event) => handleClick(event, data.name)}
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
+                      key={data.name}
                       selected={isItemSelected}
                     >
                       <TableCell
                         id={labelId}
                       >
-                        {row.name}
+                        {data.number}
                       </TableCell>
-                      <TableCell align="left">{row.calories}</TableCell>
-                      <TableCell align="left">{row.fat}</TableCell>
-                      <TableCell align="left">{row.carbs}</TableCell>
-                      <TableCell align="left">{row.protein}</TableCell>
-                      <TableCell align="left">{row.protein}</TableCell>
-                      <TableCell align="left">{row.protein}</TableCell>
-                      <TableCell align="left">{row.protein}</TableCell>
+                      <TableCell align="left">{data.name}</TableCell>
+                      <TableCell align="left">{data.description}</TableCell>
+                      <TableCell align="left">{data.picture}</TableCell>
+                      <TableCell align="left">{data.capacity}</TableCell>
+                      <TableCell align="left">{data.square}</TableCell>
+                      <TableCell align="left">{data.price}</TableCell>
+                      <TableCell align="left">{data.status}</TableCell>
+                      <TableCell align="left">{data.type}</TableCell>
                       <TableCell align="left" style={{width: '10vw'}}>
-                      <Stack direction="row" spacing={2}>
+                        <Stack direction="row" spacing={2}>
                           <Button size="small" variant="contained" style={{backgroundColor: '#D2B58B'}}>Edit</Button>
                           <Button size="small" variant="contained" style={{backgroundColor: '#D2B58B'}}>Delele</Button>
-                          </Stack>
+                        </Stack>
                       </TableCell>
                     </TableRow>
                   );
@@ -326,6 +329,7 @@ export default function EnhancedTable() {
         
       </Paper>
       <Button variant="contained" style={{backgroundColor: '#D2B58B'}}>Add room</Button>
+      {/* <Update name={} description={}/> */}
     </Box>
   );
 }
