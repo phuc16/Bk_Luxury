@@ -6,6 +6,8 @@ import {Link} from '@material-ui/core';
 
 import {Link as PageLink} from 'react-router-dom';
 
+import axios from 'axios';
+
 const initialFValues = {
     email: '',
     password: '',
@@ -38,7 +40,19 @@ export default function SignIn() {
     const handleSubmit = e => {
         e.preventDefault()
         if (validate()){
-            alert(values.email)
+          const input = {
+            email: values.email,
+            password: values.password
+          }
+          axios.post('http://localhost:8080/account/login', { input })
+          .then((response) => {
+            if (response.data){
+              alert(response.data);
+            }
+          })
+          .catch((error) => {
+              alert('Email or password is incorrect!')
+          });
         }
     }
 

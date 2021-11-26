@@ -145,10 +145,33 @@ function RoomDescription(props) {
                                               price: values.price,
                                               type: values.type,
                                               status: values.status})
-    // .then(response=>{
-    //   console.log(response);
-    // })
-    .catch(error=>{console.log(error)})
+    .then(response=>{
+      console.log(response);
+    })
+    .catch(error=>{console.log(error)
+      alert('Invalid input')})
+    window.location.reload();
+    
+  }
+
+  const editRoom = e =>
+  {
+    console.log(values)
+    axios.put(`http://localhost:8080/room/${values.number}`,{
+                                              name: values.name,
+                                              description: values.description,
+                                              picture: values.picture,
+                                              capacity: values.capacity,
+                                              square: values.square,
+                                              price: values.price,
+                                              type: values.type,
+                                              status: values.status})
+    .then(response=>{
+      console.log(response);
+    })
+    .catch(error=>{console.log(error)
+      alert('Invalid input')
+    })
     window.location.reload();
   }
   
@@ -246,12 +269,13 @@ function RoomDescription(props) {
 
       <Modal.Footer>
         {/* <Button variant="danger" onClick={() => {deleteProduct(data.id); setroomDescription({id: -1})}}>Delete</Button> */}
-        <button class="btn btn-outline-primary update-btn" type="submit" id="signup" name="update" onClick={addRoom}>
+        <button class="btn btn-outline-primary update-btn" type="submit" id="signup" name="update" onClick={data.number === undefined ? addRoom : editRoom}>
                   Xác nhận
         </button>
-        <button class="btn btn-outline-danger del-btn" type="submit" id="signup"  name="update" onClick={deleteRoom}>
+
+        {data.number !== undefined && <button class="btn btn-outline-danger del-btn" type="submit" id="signup"  name="update" onClick={deleteRoom}>
                   Xóa
-        </button>
+        </button>}
       </Modal.Footer>
     </Modal.Dialog>
     </div>

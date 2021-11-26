@@ -1,6 +1,8 @@
 import { Grid, } from '@material-ui/core';
 import Controls from "./components/controls/Controls";
 import { useForm, Form } from './components/useForm';
+import axios from 'axios';
+import moment from 'moment';
 
 const initialFValues = {
     firstName: '',
@@ -56,8 +58,22 @@ export default function SignUp() {
     const handleSubmit = e => {
         e.preventDefault()
         if (validate()){
-            alert(`${values.firstName}, ${values.lastName}, ${values.email}`)
-            resetForm()
+            axios.post('http://localhost:8080/account', {
+                firstName: values.firstName,
+                lastName: values.lastName,
+                email: values.email,
+                password: values.password,
+                dob: moment(values.dob).format('YYYY-MM-DD'),
+                phone: values.phoneNumber,
+                country: values.country
+            })
+            .then((response) => {
+                  alert(`Created user with email ${values.email} successfully!`)
+            })
+            .catch((error) => {
+                console.log(error);
+                alert('Email already exists!')
+            });
         }
     }
 

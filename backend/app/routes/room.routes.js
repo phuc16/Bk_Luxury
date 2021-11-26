@@ -13,7 +13,7 @@ module.exports = app => {
     router.get("/:number", room.findByNumber);
   
     // Update a Room with number
-    //router.put("/:number", room.update);
+    router.put("/:number", room.update);
   
     // Delete a Room with number
     router.delete("/:number", room.delete);
