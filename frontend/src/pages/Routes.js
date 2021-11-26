@@ -10,7 +10,7 @@ import Rooms from './rooms/Rooms';
 import Services from './services/Services';
 import SignIn from './signIn/SignIn';
 import SignUp from './signIn/SignUp'
-
+import Admin from './admin/admin';
 import Footer from '../components/footer';
 import Header from '../components/header';
 
@@ -44,6 +44,9 @@ export default function Routes(){
           </Route>
           <Route exact path="/signin">
             <SignIn/>
+          </Route>
+          <Route exact path="/admin">
+            <Admin/>
           </Route>
           <Route exact path="/">
             <Home />
