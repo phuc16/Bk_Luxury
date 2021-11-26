@@ -12,6 +12,7 @@ exports.create = (req, res) => {
     // Create a Room
     const room = new Room({
         number: req.body.number,
+        name: req.body.name,
         description: req.body.description,
         picture: req.body.picture,
         capacity: req.body.capacity,
