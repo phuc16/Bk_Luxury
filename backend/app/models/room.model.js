@@ -43,6 +43,25 @@ Room.findByNumber = (number, result) => {
     });
 };
 
+Room.update = (room, result) => {
+    sql.query(`UPDATE room SET ? WHERE number = ${room.number}`, room.info, (err, res, fields) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+
+        if (res.affectedRows == 0) {
+        // not found Room with number
+        result({ kind: "not_found" }, null);
+        return;
+        }
+
+        console.log("updated room with number: ", room.number);
+        result(null, res);
+    });
+};
+
 Room.getAll = (title, result) => {
     let query = "SELECT * FROM room";
 

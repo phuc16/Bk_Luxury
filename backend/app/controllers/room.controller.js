@@ -67,7 +67,39 @@ exports.findByNumber = (req, res) => {
 
 // Update a Room identified by number in the request
 exports.update = (req, res) => {
-  
+    if (!req.body) {
+        return res.status(400).send({
+            message: "Content can not be empty!"
+        });
+    }
+    else if (isNaN(req.params.number) || isNaN(req.body.capacity) || isNaN(req.body.square) || isNaN(req.body.price) || (req.body.status !== 0 && req.body.status !== 1)) {
+        return res.status(400).send({
+            message: "Invalid input!"
+        });
+    }
+
+    const room = {
+        number: req.params.number,
+        info:
+        {
+            description: req.body.description,
+            picture: req.body.picture,
+            capacity: req.body.capacity,
+            square: req.body.square,
+            price: req.body.price,
+            type: req.body.type,
+            status: req.body.status
+        }
+    };
+
+    Room.update(room, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while updating the Room."
+            });
+        else res.send(data);
+    });
 };
 
 // Delete a Room with the specified number in the request
