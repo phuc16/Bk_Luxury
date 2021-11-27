@@ -12,8 +12,8 @@ export default function Booking(){
     // const handleChange = (event, newValue) => {
     //     setValue(newValue);
     // };
-    const [valueCheckIn, setValueCheckIn] = React.useState(null);
-    const [valueCheckOut, setValueCheckOut] = React.useState(null);
+    const [valueCheckIn, setValueCheckIn] = React.useState('');
+    const [valueCheckOut, setValueCheckOut] = React.useState('');
     const [searchItem, setSearchItem] = useState('');
 
     return (
@@ -59,7 +59,7 @@ export default function Booking(){
             </Grid>
 
             {/* Room Info */}
-            <RoomInfo searchItem={searchItem}/>
+            <RoomInfo searchItem={searchItem} checkIn={valueCheckIn} checkOut={valueCheckOut}/>
         </Container>
     );
 }

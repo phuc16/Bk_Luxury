@@ -19,7 +19,7 @@ exports.create = (req, res) => {
     });
 
     
-    Tutorial.create(booking, (err, data) => {
+    Booking.create(booking, (err, data) => {
         if (err)
             res.status(500).send({
                 message:
@@ -29,7 +29,7 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all Booking from the database (with condition).
+// Retrieve all Booking from the database
 exports.findAll = (req, res) => {
     const id = req.query.id;
 
@@ -45,7 +45,7 @@ exports.findAll = (req, res) => {
 
 
 
-// Delete a Booking with the specified number in the request
+// Delete a Booking with the booking id in the request
 exports.delete = (req, res) => {
     Booking.delete(req.params.id, (err, data) => {
         if (err) {
