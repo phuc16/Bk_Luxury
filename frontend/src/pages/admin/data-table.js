@@ -18,8 +18,10 @@ export default function Product() {
       console.log(response.data);
       setData(response.data);
     })
-    .catch(error=>{console.log(error)})
-  },[])  
+    .catch(error=>{
+      console.log(error);
+    })
+  }, [])  
   const [roomDescription, setroomDescription] = useState({id: -1})
   
   const columns = [
@@ -124,55 +126,58 @@ function RoomDescription(props) {
 
   const deleteRoom = e =>{
     setroomDescription({id: -1})
-    console.log(values.number)
     axios.delete(`http://localhost:8080/room/${values.number}`)
-    .then(response=>{
+    .then(response => {
       console.log(response);
+      window.location.reload();
     })
-    .catch(error=>{console.log(error)})
-    window.location.reload()
+    .catch(error => {
+      console.log(error);
+      alert('Deleting failed');
+    })
   }
 
   const addRoom = e =>{
-   
-    console.log(values)
-    axios.post(`http://localhost:8080/room/`,{number: values.number, 
-                                              name: values.name,
-                                              description: values.description,
-                                              picture: values.picture,
-                                              capacity: values.capacity,
-                                              square: values.square,
-                                              price: values.price,
-                                              type: values.type,
-                                              status: values.status})
-    .then(response=>{
-      console.log(response);
+    axios.post(`http://localhost:8080/room/`, {
+      number: values.number, 
+      name: values.name,
+      description: values.description,
+      picture: values.picture,
+      capacity: values.capacity,
+      square: values.square,
+      price: values.price,
+      type: values.type,
+      status: values.status
     })
-    .catch(error=>{console.log(error)
-      alert('Invalid input')})
-    window.location.reload();
-    
+    .then(response => {
+      console.log(response);
+      window.location.reload();
+    })
+    .catch(error => {
+      console.log(error);
+      alert('Invalid input');
+    })
   }
 
-  const editRoom = e =>
-  {
-    console.log(values)
-    axios.put(`http://localhost:8080/room/${values.number}`,{
-                                              name: values.name,
-                                              description: values.description,
-                                              picture: values.picture,
-                                              capacity: values.capacity,
-                                              square: values.square,
-                                              price: values.price,
-                                              type: values.type,
-                                              status: values.status})
-    .then(response=>{
+  const editRoom = e => {
+    axios.put(`http://localhost:8080/room/${values.number}`, {
+      name: values.name,
+      description: values.description,
+      picture: values.picture,
+      capacity: values.capacity,
+      square: values.square,
+      price: values.price,
+      type: values.type,
+      status: values.status
+    })
+    .then(response => {
       console.log(response);
+      window.location.reload();
     })
-    .catch(error=>{console.log(error)
-      alert('Invalid input')
+    .catch(error => {
+      console.log(error);
+      alert('Invalid input');
     })
-    window.location.reload();
   }
   
   return(
