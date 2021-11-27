@@ -100,14 +100,12 @@ exports.findByType = (req, res) => {
 
 // Update a Room identified by number in the request
 exports.update = (req, res) => {
-    console.log(req.body)
     if (!req.body) {
-        
         return res.status(400).send({
             message: "Content can not be empty!"
         });
     }
-    else if ((isNaN(req.body.number) || req.body.number == '') || 
+    else if ((isNaN(req.params.number) || req.params.number == '') || 
             (isNaN(req.body.capacity) || req.body.capacity == '') || 
             (isNaN(req.body.square) || req.body.square == '') || 
             (isNaN(req.body.price) || req.body.price == '') ||
