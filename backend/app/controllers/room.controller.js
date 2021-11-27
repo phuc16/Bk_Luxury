@@ -12,10 +12,10 @@ exports.create = (req, res) => {
             (isNaN(req.body.capacity) || req.body.capacity == '') || 
             (isNaN(req.body.square) || req.body.square == '') || 
             (isNaN(req.body.price) || req.body.price == '') ||
-            (isNaN(req.body.name) || req.body.name == '') ||
-            (isNaN(req.body.type) || req.body.type == '') ||
-            (isNaN(req.body.description) || req.body.description == '') ||
-            (isNaN(req.body.picture) || req.body.picture == '') ||
+            (req.body.name == '') ||
+            (req.body.type == '') ||
+            (req.body.description == '') ||
+            (req.body.picture == '') ||
             (req.body.status != 0 && req.body.status != 1)) {
         
         return res.status(400).send({
@@ -94,10 +94,10 @@ exports.update = (req, res) => {
             (isNaN(req.body.capacity) || req.body.capacity == '') || 
             (isNaN(req.body.square) || req.body.square == '') || 
             (isNaN(req.body.price) || req.body.price == '') ||
-            (isNaN(req.body.name) || req.body.name == '') ||
-            (isNaN(req.body.type) || req.body.type == '') ||
-            (isNaN(req.body.description) || req.body.description == '') ||
-            (isNaN(req.body.picture) || req.body.picture == '') ||
+            (req.body.name == '') ||
+            (req.body.type == '') ||
+            (req.body.description == '') ||
+            (req.body.picture == '') ||
             (req.body.status != 0 && req.body.status != 1)) {
         
         return res.status(400).send({
