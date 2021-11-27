@@ -35,7 +35,6 @@ exports.create = (req, res) => {
         type: req.body.type,
         status: req.body.status
     });
-    
     // Save Room in the database
     Room.create(room, (err, data) => {
         if (err)
