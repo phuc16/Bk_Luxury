@@ -4,13 +4,12 @@ const dbConfig = require("../config/db.config.js");
 
 // Create a connection to the database
 const connection = mysql.createPool({
-  connectionLimit: 10,
+  connectionLimit : 10,
   host: dbConfig.HOST,
   user: dbConfig.USER,
   password: dbConfig.PASSWORD,
   database: dbConfig.DB
 });
-
 // open the MySQL connection
 connection.getConnection(error => {
   if (error) throw error;
