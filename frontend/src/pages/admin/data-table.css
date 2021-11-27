@@ -59,6 +59,18 @@
 {
     background-color: #D2B58D!important;
 }
+.room-table tbody tr td:nth-child(3){
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.room-table tbody tr td:nth-child(4){
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 .room-table tbody
 {

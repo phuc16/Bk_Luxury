@@ -86,7 +86,7 @@ export default function Product() {
           keyField="id" data={datas} 
           columns={columns} 
           rowEvents={rowEvents}
-          pagination={paginationFactory({ sizePerPage: 5 })}
+          pagination={paginationFactory({ sizePerPage: 7 })}
         />
       </div>
       {roomDescription.id === -1 ? <p/> : <RoomDescription data={roomDescription} setroomDescription={setroomDescription} />}
@@ -179,7 +179,10 @@ function RoomDescription(props) {
     <div className="popup-box">
     <Modal.Dialog className="popup-content">
       <Modal.Header style={{backgroundColor: '#D2B58B', height: "45px"}} closeButton onClick={() => setroomDescription({id:-1})}>
-        <Modal.Title>Room Updating</Modal.Title>
+        <Modal.Title>
+          {data.number === undefined ? 'Room Creating':'Room Updating'}  
+          {/* Room Updating */}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <form class="row g-3 needs-validation infoForm" novalidate >
