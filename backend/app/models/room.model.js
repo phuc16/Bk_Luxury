@@ -75,6 +75,24 @@ Room.getAll = (title, result) => {
         result(null, res);
     });
 };
+
+Room.findByType = (type, result) => {
+    sql.query(`SELECT * FROM room WHERE type = '${type}' group by name`, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+            return;
+        }
+
+        if (res.length) {
+            result(null, res);
+            return;
+        }
+
+        // not found Room with the type
+        result({ kind: "not_found" }, null);
+    });
+};
     
 Room.delete = (number, result) => {
     sql.query("DELETE FROM room WHERE number = ?", number, (err, res) => {

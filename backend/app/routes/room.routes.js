@@ -11,6 +11,10 @@ module.exports = app => {
   
     // Retrieve a single Room with number
     router.get("/:number", room.findByNumber);
+
+     // Retrieve a single Room with type
+     router.get("/type/:type", room.findByType);
+
   
     // Update a Room with number
     router.put("/:number", room.update);
