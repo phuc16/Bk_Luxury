@@ -66,6 +66,24 @@ exports.findByNumber = (req, res) => {
       }); 
 };
 
+exports.findByType = (req, res) => {
+    Room.findByType(req.params.type, (err, data) => {
+        if (err) {
+            if (err.kind === "not_found") {
+                res.status(404).send({
+                message: `Not found Room with type ${req.params.type}.`
+                });
+            } 
+            else {
+                res.status(500).send({
+                message: "Error retrieving Room with type " + req.params.type
+                });
+            }
+        } 
+        else res.send(data);
+      }); 
+};
+
 // Update a Room identified by number in the request
 exports.update = (req, res) => {
   
