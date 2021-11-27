@@ -3,7 +3,7 @@ const sql = require("./db.js")
 //constructor
 const Room = function(room) {
     this.number = room.number;
-    this.name = room.name;
+    this.name =     room.name;
     this.description = room.description;
     this.picture = room.picture;
     this.capacity = room.capacity;
