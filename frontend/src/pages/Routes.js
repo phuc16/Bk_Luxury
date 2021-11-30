@@ -11,6 +11,7 @@ import Services from './services/Services';
 import SignIn from './signIn/SignIn';
 import SignUp from './signIn/SignUp'
 import Admin from './admin/room/admin';
+import Payment from './booking/Payment';
 import Footer from '../components/footer';
 import Header from '../components/header';
 
@@ -32,6 +33,9 @@ export default function Routes(){
         <Switch>
           <Route exact path="/booking">
             <Booking />
+          </Route>
+          <Route exact path="/payment">
+            <Payment />
           </Route>
           <Route exact path="/rooms">
             <Rooms />

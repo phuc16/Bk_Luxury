@@ -3,8 +3,7 @@ import RoomImage from './RoomImage'
 import RoomEquip from './RoomEquip'
 import { Card, Grid } from '@material-ui/core'
 
-export default function RoomBoxRevert({ Room }) {
-    console.log(Room.img)
+export default function RoomBoxRevert({ Room, Equips }) {
     return (
         <Grid container
             direction="row"
@@ -17,8 +16,8 @@ export default function RoomBoxRevert({ Room }) {
                 }}>
                     <Grid container spacing={2} alignItems="center" justifyContent="space-between">
                         <Grid style={{paddingLeft: "3%"}} item xs={12} sm={7} md={7} lg={5}><RoomDesc Name={Room.name} Desc={Room.description} /></Grid>
-                        <Grid item xs={12} sm={5} md={5} lg={3}><RoomEquip equip={Room.equip} area={Room.area} /></Grid>
-                        <Grid item xs={12} sm={12} md={12} lg={4}><RoomImage RoomImage={Room.img} /></Grid>
+                        <Grid item xs={12} sm={5} md={5} lg={3}><RoomEquip number={Room.number} equip={Equips} area={Room.square} /></Grid>
+                        <Grid item xs={12} sm={12} md={12} lg={4}><RoomImage RoomImage={Room.picture} /></Grid>
                     </Grid>
                 </Card>
             </Grid>

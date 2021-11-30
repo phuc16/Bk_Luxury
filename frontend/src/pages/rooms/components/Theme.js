@@ -67,12 +67,12 @@ themeRooms.typography.h4 = {
 }
 
 themeRooms.typography.h5 = {
-    fontWeight:"600",
+    fontWeight:"500",
     [themeRooms.breakpoints.up('md')]: {
-        fontSize: '1.3rem',
+        fontSize: '1.2rem',
     },
     [themeRooms.breakpoints.up('lg')]: {
-        fontSize: '1.4rem',
+        fontSize: '1.3rem',
     },
     [themeRooms.breakpoints.down('sm')]: {
         fontSize: '1rem',
@@ -101,13 +101,13 @@ themeRooms.typography.h6 = {
 themeRooms.typography.body1 = {
     fontWeight: "400",
     [themeRooms.breakpoints.up('md')]: {
-        fontSize: '1.1rem',
+        fontSize: '0.9rem',
     },
     [themeRooms.breakpoints.up('lg')]: {
-        fontSize: '1.1rem',
+        fontSize: '1rem',
     },
     [themeRooms.breakpoints.down('sm')]: {
-        fontSize: '1rem',
+        fontSize: '0.7rem',
     },
     [themeRooms.breakpoints.down('xs')]: {
         fontSize: '0.6rem',

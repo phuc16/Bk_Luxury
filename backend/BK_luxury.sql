@@ -15,6 +15,7 @@ create table if not exists ACCOUNT(
 
 create table if not exists ROOM(
 	number			int				auto_increment,
+    name			char(20)		not null,		
     desciption		varchar(100)	not null,
     picture			varchar(100)	not null,
     capacity		int				not null,
@@ -41,7 +42,6 @@ create table if not exists BOOKING(
 );
 
 alter table SERVICE add FOREIGN KEY (roomNumber) REFERENCES ROOM(number);
-
 alter table BOOKING
     add FOREIGN KEY (accountId) 
 				REFERENCES ACCOUNT(id)
