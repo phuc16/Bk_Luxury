@@ -13,12 +13,11 @@ exports.create = (req, res) => {
     const booking = new Booking({
         id: req.body.id,
         accountId: req.body.accountId,
-        square: req.body.square,
+        roomNumber: req.body.roomNumber,
         checkIn: req.body.checkIn,
         checkOut: req.body.checkOut
     });
 
-    
     Booking.create(booking, (err, data) => {
         if (err)
             res.status(500).send({
@@ -43,7 +42,45 @@ exports.findAll = (req, res) => {
     });
   };
 
+// Update a booking identified by id in the request
+exports.update = (req, res) => {
+    if (!req.body) {
+        return res.status(400).send({
+            message: "Content can not be empty!"
+        });
+    }
+    else if ((isNaN(req.params.id) || req.params.id == '') || 
+            (isNaN(req.body.accountId) || req.body.accountId== '') || 
+            (isNaN(req.body.roomNumber) || req.body.roomNumber == '') || 
+            (req.body.checkIn == '') ||
+            (req.body.checkOut == '')) {
+        
+        return res.status(400).send({
+            message: "Invalid input!"
+        });
+    }
 
+    const booking = {
+        id: req.params.id,
+        info:
+        {
+            accountId: req.body.accountId,
+            roomNumber: req.body.roomNumber,
+            checkIn: req.body.checkIn,
+            checkOut: req.body.checkOut
+        }
+    };
+    
+
+    Booking.update(booking, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while updating the Booking."
+            });
+        else res.send(data);
+    });
+};
 
 // Delete a Booking with the booking id in the request
 exports.delete = (req, res) => {

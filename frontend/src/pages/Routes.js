@@ -10,7 +10,8 @@ import Rooms from './rooms/Rooms';
 import Services from './services/Services';
 import SignIn from './signIn/SignIn';
 import SignUp from './signIn/SignUp'
-import Admin from './admin/room/admin';
+import Admin from './admin/rooms/admin';
+import AdminBooking from './admin/booking/adminBooking';
 import Payment from './booking/Payment';
 import Footer from '../components/footer';
 import Header from '../components/header';
@@ -51,6 +52,9 @@ export default function Routes(){
           </Route>
           <Route exact path="/admin">
             <Admin/>
+          </Route>
+          <Route exact path="/adBooking">
+            <AdminBooking/>
           </Route>
           <Route exact path="/">
             <Home />

@@ -8,7 +8,8 @@ const connection = mysql.createPool({
   host: dbConfig.HOST,
   user: dbConfig.USER,
   password: dbConfig.PASSWORD,
-  database: dbConfig.DB
+  database: dbConfig.DB,
+  timezone : 'Z'
 });
 // open the MySQL connection
 connection.getConnection(error => {
