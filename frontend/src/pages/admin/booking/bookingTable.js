@@ -1,5 +1,5 @@
 import BootstrapTable from "react-bootstrap-table-next";
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import {Modal, Button} from 'react-bootstrap'
 import { useState } from "react";
 import axios from 'axios';
