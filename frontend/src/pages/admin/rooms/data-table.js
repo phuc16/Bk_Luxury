@@ -8,6 +8,7 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 import './script';
 import '../css/table.css';
 import Button from '@mui/material/Button'
+import CloseIcon from '@mui/icons-material/Close';
 //import '../css/bootstrap.min.css'
 
 
@@ -191,6 +192,7 @@ function RoomDescription(props) {
         <Modal.Title className='dataTitle'>
           {data.number === undefined ? 'Room Creating':'Room Updating'}  
           {/* Room Updating */}
+          <CloseIcon className='closeI' />
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

@@ -1,6 +1,6 @@
 import BootstrapTable from "react-bootstrap-table-next";
 //import 'bootstrap/dist/css/bootstrap.min.css';
-import {Modal} from 'react-bootstrap'
+import {CloseButton, Modal} from 'react-bootstrap'
 import { useState } from "react";
 import axios from 'axios';
 import './bookingTable.css'
@@ -10,7 +10,7 @@ import './script';
 import '../css/table.css';
 import Button from '@mui/material/Button';
 import moment from 'moment';
-
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function Product() {
   const [datas, setData] = React.useState([]);
@@ -162,10 +162,11 @@ function BookingDescription(props) {
   return(
     <div className="popup-box">
     <Modal.Dialog className="popup-content booking-table">
-      <Modal.Header style={{backgroundColor: '#D2B58B', height: "45px"}} closeButton onClick={() => setBookingDescription({tog:-1})}>
+      <Modal.Header style={{backgroundColor: '#D2B58B', height: "45px"}} onClick={() => setBookingDescription({tog:-1})}>
         <Modal.Title className='dataTitle'>
           {data.id === undefined ? 'Booking Creating':'Booking Updating'}  
           {/* Room Updating */}
+          <CloseIcon className='closeI' />
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

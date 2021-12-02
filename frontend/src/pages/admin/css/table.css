@@ -161,6 +161,7 @@
 {
     font-size: 30px;
     font-weight: bold;
+    text-align: center;
 }
 
 .modal-header button {
@@ -206,4 +207,11 @@
 .bookingForm .mb-4 label
 {
     text-align: left;
+}
+
+.closeI
+{
+    position: relative;
+    left: 25%;
+    cursor: pointer;
 }
