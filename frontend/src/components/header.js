@@ -203,6 +203,14 @@ const Header = (props) => {
                       Services
                     </Button>
                   
+                    <Button className={classes.buttonMenu}
+                      variant="text"
+                      component={Link} to={'/booking'}
+                      
+                      color="default"
+                    >
+                      Booking
+                    </Button>
                   
                     <Button className={classes.buttonMenu}
                       variant="text"
@@ -214,15 +222,7 @@ const Header = (props) => {
                     </Button>
                  
                   
-                    <Button className={classes.buttonMenu}
-                      variant="text"
-                      component={Link} to={'/booking'}
                       
-                      color="default"
-                    >
-                      
-                      Booking
-                    </Button>
                  
                 </div>
               )}
