@@ -5,6 +5,9 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import {
+  Link
+} from "react-router-dom";
 import '../asset/css/slick.css';
 
 const photo =[
@@ -42,7 +45,7 @@ export default class SimpleSlider extends Component {
             <div className="slide-container" >
               <p><span>-</span> Welcome <span>-</span></p>
               <Typography className="brand">BK Luxury Hotel</Typography>
-              <Button className="dis-btn" style={{backgroundColor: "#ECD4BB"}} variant="text">Discover Now</Button>
+              <Button className="dis-btn" style={{backgroundColor: "#ECD4BB"}} variant="text" component={Link} to={'/rooms'}>Discover Now</Button>
              
               <img height="100%" src={photo.url} className="img-slider" alt=''></img>
             </div>

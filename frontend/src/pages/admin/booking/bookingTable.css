@@ -72,11 +72,11 @@
     white-space: nowrap;
 }
 
-.room-table tbody
+/* .room-table tbody
 {
     background-color: #FCFAF0;
     color: #1A1810;
-}
+} */
 
 /* PAGING CSS */
 .room-table .dropdown
@@ -84,17 +84,3 @@
     display: none;
 }
 
-.room-table .page-link
-{
-    background-color: #D2B58D;
-    position: relative;
-    left: 30vw;
-    color: #1A1810;
-}
-
-.room-table .page-item.active .page-link {
-    z-index: 3;
-    color: #fff;
-    background-color: #D2B58D;
-    border-color: #D2B58D;
-}

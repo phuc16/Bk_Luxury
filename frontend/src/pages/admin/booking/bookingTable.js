@@ -1,13 +1,14 @@
 import BootstrapTable from "react-bootstrap-table-next";
 //import 'bootstrap/dist/css/bootstrap.min.css';
-import {Modal, Button} from 'react-bootstrap'
+import {Modal} from 'react-bootstrap'
 import { useState } from "react";
 import axios from 'axios';
 import './bookingTable.css'
 import * as React from 'react';
 import paginationFactory from "react-bootstrap-table2-paginator";
 import './script';
-
+import '../css/table.css';
+import Button from '@mui/material/Button';
 import moment from 'moment';
 
 
@@ -82,9 +83,9 @@ export default function Product() {
         />
       </div>
       {bookingDescription.tog === -1 ? <p/> : <BookingDescription data={bookingDescription} setBookingDescription={setBookingDescription} />}
-      <button className="btn btn-outline-danger add-btn" type="submit" id="signup"  name="update" onClick={() => {setBookingDescription({tog: 0})}}>
-            Add booking
-      </button>
+      <Button variant="contained" type="submit" id="signup"  name="update" onClick={() => {setBookingDescription({tog: 0})}} style={{color: 'black' , backgroundColor: '#D2B58D'}}>
+        Add Booking
+      </Button>
     </div>
   );
 }
@@ -160,58 +161,47 @@ function BookingDescription(props) {
   
   return(
     <div className="popup-box">
-    <Modal.Dialog className="popup-content">
+    <Modal.Dialog className="popup-content booking-table">
       <Modal.Header style={{backgroundColor: '#D2B58B', height: "45px"}} closeButton onClick={() => setBookingDescription({tog:-1})}>
-        <Modal.Title>
+        <Modal.Title className='dataTitle'>
           {data.id === undefined ? 'Booking Creating':'Booking Updating'}  
           {/* Room Updating */}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <form class="row g-3 needs-validation infoForm" novalidate >
+        <form class="row g-3 needs-validation infoForm bookingForm" novalidate >
             <div class="mb-4 row ">
                 <label class="form-label col-sm-3" for="id">ID</label>
                 <div class="col-sm-9">
                     <input type="number"  readOnly={data.id !== undefined} onChange={handleInputChange}  class="form-control" name="id" id="id" placeholder="" required defaultValue={data.id}/>
-                    <div class="invalid-feedback">
-                        ID IS INVALID!
-                    </div>
+                    
                 </div>
             </div>
             <div class="mb-4 row ">
                 <label class="form-label col-sm-3" for="accountId">AccountID</label>
                 <div class="col-sm-9">
                     <input type="number" onChange={handleInputChange} class="form-control" name="accountId"  id="accountId" placeholder="" required defaultValue={data.accountId}/>
-                    <div class="invalid-feedback">
-                        AccountID IS INVALID!
-                    </div>
+                    
                 </div>
             </div>
             <div class="mb-4 row ">
                 <label class="form-label col-sm-3" for="roomNumber">Room Number</label>
                 <div class="col-sm-9">
                     <input type="number" onChange={handleInputChange} class="form-control" name="roomNumber"  id="roomNumber" placeholder="" required  defaultValue={data.roomNumber}/>
-                    <div class="invalid-feedback">
-                        Room Number IS INVALID!
-                    </div>
+                  
                 </div>
             </div>
             <div class="mb-4 row ">
                 <label class="form-label col-sm-3" for="checkIn">Check In</label>
                 <div class="col-sm-9">
                     <input type="date" onChange={handleInputChange} class="form-control" name="checkIn"  id="checkIn" placeholder="" required  defaultValue={data.id === undefined ? '' : moment(moment(data.checkIn, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD')}/>
-                    <div class="invalid-feedback">
-                      Check In IS INVALID!
-                    </div>
+                  
                 </div>
             </div>
             <div class="mb-4 row ">
                 <label class="form-label col-sm-3" for="checkOut">Check Out</label>
                 <div class="col-sm-9">
                     <input type="date" onChange={handleInputChange} class="form-control" name="checkOut"  id="checkOut" placeholder="" required  defaultValue={data.id === undefined ? '' : moment(moment(data.checkOut, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD')}/>
-                    <div class="invalid-feedback">
-                        Check Out IS INVALID!
-                    </div>
                 </div>
             </div>
             
@@ -220,13 +210,12 @@ function BookingDescription(props) {
 
       <Modal.Footer>
         {/* <Button variant="danger" onClick={() => {deleteProduct(data.id); setBookingDescription({id: -1})}}>Delete</Button> */}
-        <button class="btn btn-outline-primary update-btn" type="submit" id="signup" name="update" onClick={data.id === undefined ? addBooking : editBooking}>
-                  Xác nhận
-        </button>
-
-        {data.id !== undefined && <button class="btn btn-outline-danger del-btn" type="submit" id="signup"  name="update" onClick={deleteBooking}>
+        <Button className='confirmBtn' variant="contained" type="submit" id="signup" name="update" onClick={data.id === undefined ? addBooking : editBooking} style={{color: 'black' , backgroundColor: '#D2B58D'}}>
+          Xác nhận
+        </Button>
+        {data.id !== undefined && <Button className='delBtn' variant="contained" type="submit" id="signup"  name="update" onClick={deleteBooking} style={{color: 'black' , backgroundColor: '#D2B58D'}}>
                   Xóa
-        </button>}
+        </Button>}
       </Modal.Footer>
     </Modal.Dialog>
     </div>
