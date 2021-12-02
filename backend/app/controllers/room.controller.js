@@ -122,17 +122,7 @@ exports.update = (req, res) => {
 
     const room = {
         number: req.params.number,
-        info:
-        {
-            name: req.body.name,
-            description: req.body.description,
-            picture: req.body.picture,
-            capacity: req.body.capacity,
-            square: req.body.square,
-            price: req.body.price,
-            type: req.body.type,
-            status: req.body.status
-        }
+        info: req.body
     };
     
 

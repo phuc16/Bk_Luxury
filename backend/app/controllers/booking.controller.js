@@ -54,7 +54,7 @@ exports.update = (req, res) => {
             (isNaN(req.body.roomNumber) || req.body.roomNumber == '') || 
             (req.body.checkIn == '') ||
             (req.body.checkOut == '')) {
-        
+                
         return res.status(400).send({
             message: "Invalid input!"
         });
@@ -62,15 +62,8 @@ exports.update = (req, res) => {
 
     const booking = {
         id: req.params.id,
-        info:
-        {
-            accountId: req.body.accountId,
-            roomNumber: req.body.roomNumber,
-            checkIn: req.body.checkIn,
-            checkOut: req.body.checkOut
-        }
+        info: req.body
     };
-    
 
     Booking.update(booking, (err, data) => {
         if (err)

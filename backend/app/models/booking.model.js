@@ -17,12 +17,12 @@ Booking.create = (newBooking, result) => {
             result(err, null);
             return;
         }
-        console.log("created booking: ", { number: res.insertNumber, ...newBooking});
-        result(null, { number: res.insertNumber, ...newBooking });
+        console.log("created booking: ", newBooking);
+        result(null, newBooking);
     });
 };
   
-Booking.update = (room, result) => {
+Booking.update = (booking, result) => {
     sql.query(`UPDATE booking SET ? WHERE id = ${booking.id}`, booking.info, (err, res, fields) => {
         if (err) {
             console.log("error: ", err);

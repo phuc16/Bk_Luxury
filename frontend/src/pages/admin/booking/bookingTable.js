@@ -8,6 +8,7 @@ import * as React from 'react';
 import paginationFactory from "react-bootstrap-table2-paginator";
 import './script';
 
+import moment from 'moment';
 
 
 export default function Product() {
@@ -15,6 +16,12 @@ export default function Product() {
   React.useEffect(()=>{
     axios.get('http://localhost:8080/booking')
     .then(response=>{
+      // console.log(response.data);
+      for (let i = 0; i < response.data.length; i++) {
+        const checkIn = new Date(response.data[i].checkIn);
+        const checkOut = new Date(response.data[i].checkOut);
+        response.data[i] = {...response.data[i], checkIn: moment(checkIn).format('DD-MM-YYYY'), checkOut: moment(checkOut).format('DD-MM-YYYY')};
+      }
       console.log(response.data);
       setData(response.data);
     })
@@ -88,11 +95,10 @@ function BookingDescription(props) {
   const {data, setBookingDescription} = props
   const initialFValues = {
     id:data.id,
-    accountId: data.accountID,
+    accountId: data.accountId,
     roomNumber: data.roomNumber,
     checkIn: data.checkIn,
     checkOut: data.checkOut,
-    
   }
   const [values, setValues] = useState(initialFValues);
 
@@ -193,7 +199,7 @@ function BookingDescription(props) {
             <div class="mb-4 row ">
                 <label class="form-label col-sm-3" for="checkIn">Check In</label>
                 <div class="col-sm-9">
-                    <input type="date" onChange={handleInputChange} class="form-control" name="checkIn"  id="checkIn" placeholder="" required  defaultValue={data.checkIn}/>
+                    <input type="date" onChange={handleInputChange} class="form-control" name="checkIn"  id="checkIn" placeholder="" required  defaultValue={data.id === undefined ? '' : moment(moment(data.checkIn, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD')}/>
                     <div class="invalid-feedback">
                       Check In IS INVALID!
                     </div>
@@ -202,7 +208,7 @@ function BookingDescription(props) {
             <div class="mb-4 row ">
                 <label class="form-label col-sm-3" for="checkOut">Check Out</label>
                 <div class="col-sm-9">
-                    <input type="date" onChange={handleInputChange} class="form-control" name="checkOut"  id="checkOut" placeholder="" required  defaultValue={data.checkOut}/>
+                    <input type="date" onChange={handleInputChange} class="form-control" name="checkOut"  id="checkOut" placeholder="" required  defaultValue={data.id === undefined ? '' : moment(moment(data.checkOut, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD')}/>
                     <div class="invalid-feedback">
                         Check Out IS INVALID!
                     </div>
