@@ -8,6 +8,17 @@ exports.create = (req, res) => {
             message: "Content can not be empty!"
         });
     }
+    else if ((isNaN(req.body.id) || req.body.id == '') || 
+            (isNaN(req.body.accountId) || req.body.accountId== '') || 
+            (isNaN(req.body.roomNumber) || req.body.roomNumber == '') || 
+            (req.body.checkIn == '') ||
+            (req.body.checkOut == '') ||
+            (req.body.checkIn > req.body.checkOut))  {
+                
+        return res.status(400).send({
+            message: "Invalid input!"
+        });
+    }
 
     // Create a Booking
     const booking = new Booking({
@@ -53,7 +64,8 @@ exports.update = (req, res) => {
             (isNaN(req.body.accountId) || req.body.accountId== '') || 
             (isNaN(req.body.roomNumber) || req.body.roomNumber == '') || 
             (req.body.checkIn == '') ||
-            (req.body.checkOut == '')) {
+            (req.body.checkOut == '') || 
+            (req.body.checkOut < req.body.checkIn) ) {
                 
         return res.status(400).send({
             message: "Invalid input!"
