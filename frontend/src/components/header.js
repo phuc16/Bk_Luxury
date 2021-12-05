@@ -17,6 +17,7 @@ import {
   Link
 } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Cookies from 'js-cookie'
 
 
 // IMPORTING ICONS
@@ -29,6 +30,25 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 
 // REACT APP IMPORTS
+
+
+// authentication
+var isAdmin = Cookies.get('isAdmin');
+var isLogin = Cookies.get('id');
+if(isLogin){
+  isLogin = true;
+}
+else{
+  isLogin = false;
+}
+
+if(isAdmin==="0"){
+  isAdmin = false;
+}
+if(isAdmin==="1"){
+  isAdmin = true;
+}
+
 
 // LOCAL-STYLING
 const useStyles = makeStyles((theme) => ({
@@ -212,14 +232,23 @@ const Header = (props) => {
                       Booking
                     </Button>
                   
+                    {isLogin ?
                     <Button className={classes.buttonMenu}
+                    variant="text"
+                    component={Link} to={'/signin'}
+                    color="default"
+                    >
+                      Sign Out
+                    </Button>
+
+                    :  <Button className={classes.buttonMenu}
                       variant="text"
                       component={Link} to={'/signin'}
                       color="default"
                     >
                       
                       Sign in
-                    </Button>
+                    </Button>}
                  
                   
                       

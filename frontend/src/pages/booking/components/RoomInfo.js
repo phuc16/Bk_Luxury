@@ -19,17 +19,30 @@ export default function RoomInfo(props) {
     const searchItem = props.searchItem;
     const checkIn = props.checkIn;
     const checkOut = props.checkOut;
-    localStorage.setItem('checkIn', checkIn);
-    localStorage.setItem('checkOut', checkOut);
+
+    let booking = {
+        checkIn: props.checkIn,
+        checkOut: props.checkOut,
+        name: '',
+        image: '',
+        price: ''
+    }
     const [room, setRoom] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:8080/room")
+        axios.get("http://localhost:8080/room/GroupByName")
         .then(res => {
             setRoom(res.data);
         })
         .catch(error => alert("Cannot load room"))
     }, [])
     console.log(room);
+
+    function handleClick(val) {
+        booking.name = val.name;
+        booking.image = val.picture;
+        booking.price = val.price;
+        localStorage.setItem('booking', JSON.stringify(booking));
+    }
     return (
         <div>
             {room.filter((val) => {
@@ -55,7 +68,7 @@ export default function RoomInfo(props) {
                         </Grid>
                         <Grid item md={2} direction='column' alignSelf='center'>
                             <Typography variant="inherit">From {val.price}$</Typography>
-                            <ThemeProvider theme={theme}><Button variant="contained" color="buttonColor" component={Link} to={'/payment'} onClick={() => {localStorage.setItem('bookingImage', val.picture);localStorage.setItem('bookingName', val.name);localStorage.setItem('bookingPrice', val.price)}}>Select room</Button></ThemeProvider>
+                            <ThemeProvider theme={theme}><Button variant="contained" color="buttonColor" component={Link} to={'/payment'} onClick={() => handleClick(val)}>Select room</Button></ThemeProvider>
                         </Grid>
                     </Grid>
                 )

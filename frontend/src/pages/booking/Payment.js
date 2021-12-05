@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import { Typography, Container, Grid, CardMedia, TextField} from "@mui/material";
+import { Typography, Container, Grid, CardMedia, TextField, FormControl, InputLabel, Select, MenuItem, Box} from "@mui/material";
 import { textAlign } from "@mui/system";
 
 export default function Payment(props) {
-    const [room, setRoom] = useState(null);
-    // useEffect(() => {
-    //     axios.get("...")
-    //     .then (res => {
-    //         setRoom(res.data);
-    //     })
-    //     .catch(error =>
-    //         console.log(error)  
-    //     );
-    // }, []);
+    const storage = localStorage.getItem('booking');
+    const [booking, setBooking] = useState(JSON.parse(storage));
+    const [roomNumber, setRoomNumber] = useState('');
+    const [room, setRoom] = useState([]);
+    const handleChange = (event) => {
+        setRoomNumber(event.target.value);
+    }
 
-    const checkIn = props.checkIn;
-    const checkOut = props.checkOut;
-    const image = props.image;
-    const name = props.name;
-    const price = props.price;
+    useEffect(() => {   
+        axios.get("http://localhost:8080/room/name/" + booking.name)
+        .then(res => {
+            setRoom(res.data);
+        })
+        .catch(err => {
+            console.log(err);
+            alert("Cannot load room information");
+        })
+    },[])
+
+    //console.log(room);
 
     return (
         <Container sx={{marginTop: 2}} style={{marginTop: '70px'}}>
@@ -28,15 +32,35 @@ export default function Payment(props) {
                 <Grid item md={2}>
                     <CardMedia 
                         component="img"
-                        image={localStorage.getItem('bookingImage')}
+                        image={booking.image}
                         alt="image"
+                        height={150}
                     />
                 </Grid>
 
                 <Grid item md={8} sx={{textAlign:'left', marginLeft: 2}}>
-                    <Typography variant="inherit">{localStorage.getItem('bookingName')}</Typography>
-                    <Typography variant="inherit">{localStorage.getItem('checkIn')} to {localStorage.getItem('checkOut')} | 2 nights</Typography>
-                    <Typography variant="h6" justifyItems="end">Total Price For Stay:  {localStorage.getItem('bookingPrice')}$</Typography>
+                    <Typography variant="inherit">{booking.name}</Typography>
+                    <Typography variant="inherit">{booking.checkIn} to {booking.checkOut} | 2 nights</Typography>
+                    <Typography variant="h6" justifyItems="end">Total Price For Stay:  {booking.price}$</Typography>
+                    <FormControl variant="outlined" sx={{ m: 1, minWidth: 250 }}>
+                        <InputLabel id="demo-simple-select-label">Choose Room Number</InputLabel>
+                        <Select
+                        id="chooseRoomNumber"
+                        value={roomNumber}
+                        label="Choose Room Number"
+                        onChange={handleChange}
+                        >
+                            {/* <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem> */}
+                        {room && room.map((val, key) => {
+                            return(
+                                <MenuItem value={val.number}>{val.number}</MenuItem>
+                            )
+                        })}
+
+                        </Select>
+                    </FormControl>
                 </Grid>
             </Grid>
             <Grid container sx={{marginTop: 5}}>

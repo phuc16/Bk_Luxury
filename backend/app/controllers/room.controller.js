@@ -61,6 +61,21 @@ exports.findAll = (req, res) => {
     });
   };
 
+
+// Retrieve all Rooms group by name
+exports.findAllGroupByName = (req, res) => {
+    const name = req.query.name;
+
+    Room.getAllGroupByName(name, (err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving room."
+        });
+      else res.send(data);
+    });
+  };
+
 // Find a single Room with number
 exports.findByNumber = (req, res) => {
     Room.findByNumber(req.params.number, (err, data) => {
@@ -97,6 +112,25 @@ exports.findByType = (req, res) => {
         else res.send(data);
       }); 
 };
+
+exports.findByName = (req, res) => {
+    Room.findByName(req.params.name, (err, data) => {
+        if (err) {
+            if (err.kind === "not_found") {
+                res.status(404).send({
+                message: `Not found Room with name ${req.params.name}.`
+                });
+            } 
+            else {
+                res.status(500).send({
+                message: "Error retrieving Room with name " + req.params.name
+                });
+            }
+        } 
+        else res.send(data);
+      }); 
+};
+
 
 // Update a Room identified by number in the request
 exports.update = (req, res) => {

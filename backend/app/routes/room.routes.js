@@ -8,12 +8,18 @@ module.exports = app => {
   
     // Retrieve all Rooms
     router.get("/", room.findAll);
+
+    // Retrieve all Rooms Group By Name
+    router.get("/GroupByName", room.findAllGroupByName);
   
     // Retrieve a single Room with number
     router.get("/:number", room.findByNumber);
 
      // Retrieve a single Room with type
      router.get("/type/:type", room.findByType);
+
+     // Retrieve a single Room with name
+    router.get("/name/:name", room.findByName);
 
   
     // Update a Room with number

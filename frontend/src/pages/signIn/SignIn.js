@@ -7,6 +7,7 @@ import {Link} from '@material-ui/core';
 import {Link as PageLink} from 'react-router-dom';
 
 import axios from 'axios';
+import * as Cookies from 'js-cookie';
 
 const initialFValues = {
     email: '',
@@ -40,6 +41,7 @@ export default function SignIn() {
     const handleSubmit = e => {
         e.preventDefault()
         if (validate()){
+          Cookies.set('frontend',9);
           const input = {
             email: values.email,
             password: values.password
@@ -86,7 +88,7 @@ export default function SignIn() {
             <div>
               <Controls.Button
                 type="submit"
-                text="Sign In" 
+                text="Sign In"
               />
             </div>
             <div>

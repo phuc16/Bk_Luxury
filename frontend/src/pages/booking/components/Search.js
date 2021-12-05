@@ -5,9 +5,9 @@ import DatePicker from '@mui/lab/DatePicker';
 import {Grid, Typography, TextField} from '@mui/material';
 import UpDownButton from './UpDownButton';
 
-export default function BasicDatePicker() {
-  const [valueCheckIn, setValueCheckIn] = React.useState(null);
-  const [valueCheckOut, setValueCheckOut] = React.useState(null);
+export default function Search() {
+  const [valueCheckIn, setValueCheckIn] = React.useState(new Date());
+  const [valueCheckOut, setValueCheckOut] = React.useState(new Date());
 
   return (
     //Date check-in, check-out
@@ -28,7 +28,7 @@ export default function BasicDatePicker() {
         <Grid item md={3}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
-                label="Check-out"   
+                label="Check-out"  
                 value={valueCheckOut}
                 onChange={(newValue) => {
                     setValueCheckOut(newValue);

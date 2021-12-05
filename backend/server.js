@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
+var cookieParser = require("cookie-parser");
 
 const app = express();
+app.use(cookieParser());
 
 // var corsOptions = {
 //   origin: "http://localhost:8081"

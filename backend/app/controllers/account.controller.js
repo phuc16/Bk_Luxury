@@ -17,7 +17,8 @@ exports.create = (req, res) => {
         password: req.body.password,
         dob: req.body.dob,
         phone: req.body.phone,
-        country: req.body.country
+        country: req.body.country,
+        isAdmin: req.body.isAdmin
     });
 
     // Save account in the database

@@ -29,6 +29,7 @@ export default function Booking(){
                             setValueCheckIn(newValue);
                         }}
                         renderInput={(params) => <TextField {...params} sx={{backgroundColor: "#FCFAF0"}}/>}
+
                     />
                     </LocalizationProvider>
                 </Grid>

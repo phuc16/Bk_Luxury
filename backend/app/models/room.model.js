@@ -76,8 +76,43 @@ Room.getAll = (title, result) => {
     });
 };
 
+// Get All Group By Name
+Room.getAllGroupByName = (name, result) => {
+    let query = "SELECT * FROM room GROUP BY name";
+
+    sql.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+
+        console.log("rooms: ", res);
+        result(null, res);
+    });
+};
+
+
 Room.findByType = (type, result) => {
     sql.query(`SELECT * FROM room WHERE type = '${type}' group by name`, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+            return;
+        }
+
+        if (res.length) {
+            result(null, res);
+            return;
+        }
+
+        // not found Room with the type
+        result({ kind: "not_found" }, null);
+    });
+};
+
+Room.findByName = (name, result) => {
+    sql.query(`SELECT * FROM room WHERE name = '${name}'`, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);

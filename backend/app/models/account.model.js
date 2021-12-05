@@ -9,6 +9,7 @@ const Account = function(account) {
     this.dob = account.dob;
     this.phone = account.phone;
     this.country = account.country;
+    this.isAdmin = account.isAdmin;
 }
 
 Account.create = (newAccount, result) => {
