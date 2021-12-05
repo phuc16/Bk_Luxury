@@ -17,12 +17,29 @@ Booking.create = (newBooking, result) => {
             result(err, null);
             return;
         }
-        console.log("created booking: ", { number: res.insertNumber, ...newBooking});
-        result(null, { number: res.insertNumber, ...newBooking });
+        console.log("created booking: ", newBooking);
+        result(null, newBooking);
     });
 };
   
+Booking.update = (booking, result) => {
+    sql.query(`UPDATE booking SET ? WHERE id = ${booking.id}`, booking.info, (err, res, fields) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
 
+        if (res.affectedRows == 0) {
+        // not found Booking with number
+        result({ kind: "not_found" }, null);
+        return;
+        }
+
+        console.log("updated Booking with id: ", booking.id);
+        result(null, res);
+    });
+};
 Booking.getAll = (title, result) => {
     let query = "SELECT * FROM booking";
 
@@ -32,7 +49,6 @@ Booking.getAll = (title, result) => {
             result(null, err);
             return;
         }
-
         console.log("Booking: ", res);
         result(null, res);
     });

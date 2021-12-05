@@ -8,8 +8,8 @@ module.exports = app => {
   
     // Retrieve all Booking
     router.get("/", booking.findAll);
-  
-    
+    // Update a Booking with id
+    router.put("/:id", booking.update);
     // Delete a Booking with number
     router.delete("/:id", booking.delete);
   

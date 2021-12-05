@@ -62,11 +62,17 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1 ,
     color: '#1A1810',
     textAlign: 'left',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    "&:hover": {
+      color: '#A77B5A'
+    }
   },
   buttonMenu:
   {
-      padding: '0 2vw'
+      padding: '0 2vw',
+      "&:hover": {
+        color: '#A77B5A'
+      }
   }
 }));
 

@@ -1,0 +1,217 @@
+/* TABLE CSS */
+.table-custom table
+{
+    border-spacing: 0;
+    border-collapse: separate !important;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+   
+}
+
+.table-custom .table thead
+{
+    height: 8vh;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+.table-custom .table thead th:hover
+{
+    text-shadow:1px 1px 1px #fCFAF0;
+
+}
+
+.table-custom .table thead tr th:first-child
+{
+    border-top-left-radius: 10px ;
+}
+.table-custom .table thead tr th:last-child
+{
+    border-top-right-radius: 10px ;
+}
+
+
+.table-custom .table tbody tr
+{
+    height: 8vh;  
+    cursor: pointer;
+}
+
+.table-custom .table thead *:hover
+{
+    box-shadow: 0 0.5em 0.5em 0 #fdfae7;
+}
+
+.table-custom .table tbody tr *:hover
+{
+    box-shadow: 0 0.5em 0.5em 0 #fdfae7;
+}
+
+.table-custom .table tbody tr:nth-of-type(even){
+    background-color: #fdfae7;
+}
+
+.table-custom .table tbody tr:last-of-type{
+    border-bottom: 2px solid #A77B5A;
+}
+
+/* PAGINATION */
+.react-bootstrap-table-pagination ul
+{
+    list-style: none;
+    align-items:flex-end;
+    border-radius: 5px;
+}
+
+.react-bootstrap-table-pagination ul li:first-child
+{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.react-bootstrap-table-pagination ul li:last-child
+{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.react-bootstrap-table-pagination ul li 
+{
+    display: inline-block;
+    width: 30px;
+    background-color: #D2B58D;
+    position: relative;
+    left: 36vw;
+    height: 30px;
+    
+}
+
+.react-bootstrap-table-pagination ul li a
+{
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    top: 25%;
+}
+
+
+.react-bootstrap-table-pagination ul li a:active
+{
+    color: #A77B5A;
+}
+
+.react-bootstrap-table-pagination ul li a .page-link
+{
+    width: 100px;
+}
+
+
+.room-table .page-item.active .page-link {
+    color: #fff;
+    border-color: #D2B58D;
+    width: 100px;
+}
+
+
+/* ADD EDIT TABLE */
+.modal-content
+{
+    background-color: #fCFAF0;
+    width: 40vw;
+    height: 80vh;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    border-radius: 10px 10px 0 0;
+
+}
+
+.infoForm
+{
+    margin-top: 30px!important;
+}
+
+.modal-header
+{
+    border-radius: 10px 10px 0 0;
+}
+/* .modal-content .infoForm .mb-4
+{
+
+} */
+.modal-content .mb-4
+{
+    display: flex;
+    height: 5vh;
+    justify-content: space-between;
+    margin-left: 18%;
+    margin-right: 14%;
+    margin-bottom: 2%;
+}
+
+.modal-content .mb-4 input
+{
+    width: 20vw;
+    height: 4vh;
+    border-radius: 5px;
+}
+.dataTitle
+{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.modal-header button {
+    display: none;
+    background-color: none;
+    content: 'X';
+}
+
+.confirmBtn
+{
+    margin-top: 20px;
+    position: relative;
+    left: 5%;
+}
+
+.delBtn
+{
+    position: relative;
+    left: 40%;
+    top: 30px;
+    transform: translateX(-50%);
+}
+
+/* BOOKING CSS */
+.booking-table
+{
+    /* background-color: #fCFAF0; */
+    /* width: 40vw; */
+    /* height: 80vh; */
+    /* position: relative;
+    left: 50%;
+    transform: translateX(-50%); */
+    height: 50vh;
+    border-radius: 10px 10px 0 0;
+}
+
+.bookingForm .mb-4
+{
+    height: 10vh;
+    margin-right:10% ;
+}
+
+.bookingForm .mb-4 label
+{
+    text-align: left;
+}
+
+.closeI
+{
+    position: relative;
+    left: 25%;
+    cursor: pointer;
+}
