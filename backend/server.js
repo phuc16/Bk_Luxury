@@ -10,7 +10,8 @@ app.use(cookieParser());
 // };
 
 var allowCrossDomain = (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', "*");
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.header('Access-Control-Allow-Credentials', true)
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
@@ -36,6 +37,13 @@ require("./app/routes/account.routes.js")(app);
 require("./app/routes/service.routes.js")(app);
 require("./app/routes/booking.routes.js")(app);
 
+app.get('/cookie', function(req, res){
+  var cookie = req.cookies.name;
+  console.log(cookie);
+  console.log('a');
+  res.cookie('name', 'freetuts.net', { expires: new Date(Date.now() + 900000)});
+  res.send('success') 
+});
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

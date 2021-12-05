@@ -46,7 +46,9 @@ export default function SignIn() {
             email: values.email,
             password: values.password
           }
-          axios.post('http://localhost:8080/account/login', { input })
+          axios.post('http://localhost:8080/account/login', { input }, {
+            withCredentials: true,
+          })
           .then((response) => {
             if (response.data){
               alert(response.data);

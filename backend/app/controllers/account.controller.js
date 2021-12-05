@@ -115,6 +115,15 @@ exports.logIn = (req, res) => {
                 message: "Email or password incorrect"
             });
         }
-        else res.send(`Log in completed. Welcome user id: ${data.result.id} email: ${data.result.email}`);
-      }); 
+        else {
+            if (req.cookies.id === undefined) {
+                res.cookie('id', data.result.id, { expires: new Date(Date.now() + 2592000), httpOnly: true });
+                console.log('successfully');
+            } else {
+                console.log('cookie exists', req.cookies.id);
+            } 
+            // next();
+            res.send(`Log in completed. Welcome user id: ${data.result.id} email: ${data.result.email}`)
+        };
+    }); 
 };

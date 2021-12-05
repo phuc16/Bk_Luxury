@@ -1,10 +1,5 @@
 import BootstrapTable from "react-bootstrap-table-next";
-<<<<<<< HEAD:frontend/src/pages/admin/data-table.js
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import {Modal, Button} from 'react-bootstrap'
-=======
 import {Modal} from 'react-bootstrap'
->>>>>>> adminUI:frontend/src/pages/admin/rooms/data-table.js
 import { useState } from "react";
 import axios from 'axios';
 import './data-table.css'
