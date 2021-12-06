@@ -23,7 +23,6 @@ import Cookies from 'js-cookie';
 var isLogin = Cookies.get('id');
 var isAdmin = Cookies.get('isAdmin');
 
-
 // Condition for authentication
 if(isLogin) {
   isLogin = true;
@@ -32,11 +31,11 @@ else {
   isLogin = false;
 }
 
-if(isAdmin === "0") {
-  isAdmin = false;
+if(isAdmin === "1") {
+  isAdmin = true;
 }
 else {
-  isAdmin = true;
+  isAdmin = false;
 }
 
 const ProtectedRoute = (props) => {
@@ -65,10 +64,10 @@ const ProtectedRoute = (props) => {
     else if(props.path === "/signup") {
       return <Redirect to="/" />
     }
-    else if(props.path === "/admin") {
+    else if(props.path === "/adminRoom") {
       return <Redirect to="/" />
     }
-    else if(props.path === "/adBooking") {
+    else if(props.path === "/adminBooking") {
       return <Redirect to="/" />
     }
     else {
@@ -76,10 +75,10 @@ const ProtectedRoute = (props) => {
     }
   }
   else {// chưa đăng nhập thì không vào được trang admin, payment
-    if(props.path === "/admin") {
+    if(props.path === "/adminRoom") {
       return <Redirect to ="/" />
     }
-    else if(props.path === "/adBooking") {
+    else if(props.path === "/adminBooking") {
       return <Redirect to ="/" />
     }
     else if(props.path === "/payment") {
@@ -109,14 +108,15 @@ export default function Routes(){
         <Link to="/signin">SignIn</Link> */}
      
         <Switch>
-          <Route exact path="/booking" component={Booking} />
-          <Route exact path="/payment" component={Payment} />
-          <Route exact path="/rooms" component={Rooms} />
-          <Route exact path="/services" component={Services} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/signin" component={SignIn} />
-          <Route exact path="/admin" component={Admin} />
-          <Route exact path="/"component={Home} />
+          <ProtectedRoute exact path="/booking" component={Booking} />
+          <ProtectedRoute exact path="/payment" component={Payment} />
+          <ProtectedRoute exact path="/rooms" component={Rooms} />
+          <ProtectedRoute exact path="/services" component={Services} />
+          <ProtectedRoute exact path="/signup" component={SignUp} />
+          <ProtectedRoute exact path="/signin" component={SignIn} />
+          <ProtectedRoute exact path="/adminRoom" component={Admin} />
+          <ProtectedRoute exact path="/adminBooking" component = {AdminBooking} />
+          <ProtectedRoute exact path="/"component={Home} />
         </Switch>
      
       </Router>

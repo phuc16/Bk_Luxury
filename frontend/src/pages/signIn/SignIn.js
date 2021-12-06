@@ -41,7 +41,6 @@ export default function SignIn() {
     const handleSubmit = e => {
         e.preventDefault()
         if (validate()){
-          Cookies.set('frontend',9);
           const input = {
             email: values.email,
             password: values.password
@@ -52,6 +51,7 @@ export default function SignIn() {
           .then((response) => {
             if (response.data){
               alert(response.data);
+              window.location.reload();
             }
           })
           .catch((error) => {
@@ -112,7 +112,7 @@ export default function SignIn() {
             to="/signup">             
               <Controls.Button
                 type="submit"
-                text="Sign Up Now" 
+                text="Sign Up Now"
               />
             </PageLink>
           </div>

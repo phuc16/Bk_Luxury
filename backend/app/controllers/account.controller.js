@@ -117,7 +117,8 @@ exports.logIn = (req, res) => {
         }
         else {
             if (req.cookies.id === undefined) {
-                res.cookie('id', data.result.id, { expires: new Date(Date.now() + 2592000), httpOnly: true });
+                res.cookie('id', data.result.id, { expires: new Date(Date.now() + 86400*1000*30)});
+                res.cookie('isAdmin', data.result.isAdmin, { expires: new Date(Date.now() + 86400*1000*30)});
                 console.log('successfully');
             } else {
                 console.log('cookie exists', req.cookies.id);

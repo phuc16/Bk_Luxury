@@ -17,7 +17,7 @@ import {
   Link
 } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
 
 
 // IMPORTING ICONS
@@ -48,6 +48,7 @@ if(isAdmin==="0"){
 if(isAdmin==="1"){
   isAdmin = true;
 }
+
 
 
 // LOCAL-STYLING
@@ -96,6 +97,12 @@ const Header = (props) => {
   const handleMenu = (event) => {
     setAnchor(event.currentTarget);
   };
+  const handleSignOut = () => {
+    Cookies.remove('id');
+    Cookies.remove('isAdmin');
+    alert("Signed Out Completed!");
+    window.location.reload();
+  }
   return (
     <div className={classes.root}>
       <HideOnScroll {...props}>
@@ -228,20 +235,36 @@ const Header = (props) => {
                       
                       Services
                     </Button>
-                  
-                    <Button className={classes.buttonMenu}
+
+                    {isAdmin && <Button className={classes.buttonMenu}
                       variant="text"
-                      component={Link} to={'/booking'}
-                      
+                      component={Link} to={'/adminRoom'}
                       color="default"
                     >
-                      Booking
+                      Manage Rooms
+                    </Button>}
+                  
+                    {isAdmin? <Button className={classes.buttonMenu}
+                      variant="text"
+                      component={Link} to={'/adminBooking'}
+                      color="default"
+                    >
+                      Manage Booking
                     </Button>
+                    : <Button className={classes.buttonMenu}
+                    variant="text"
+                    component={Link} to={'/booking'}
+                    
+                    color="default"
+                  >
+                    Booking
+                  </Button>
+                  }
                   
                     {isLogin ?
                     <Button className={classes.buttonMenu}
                     variant="text"
-                    component={Link} to={'/signin'}
+                    onClick={() => handleSignOut()}
                     color="default"
                     >
                       Sign Out
