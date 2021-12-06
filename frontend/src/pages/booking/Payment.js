@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import { Typography, Container, Grid, CardMedia, TextField, FormControl, InputLabel, Select, MenuItem, Box} from "@mui/material";
-import { textAlign } from "@mui/system";
+import { Typography, Container, Grid, CardMedia, TextField, FormControl, InputLabel, Select, MenuItem, Button} from "@mui/material";
+import moment from 'moment';
+import Cookies from 'js-cookie';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
+
+const theme= createTheme({
+    palette: {
+        buttonColor: {
+            main: '#A77B5A',
+            contrastText: '#ffffff'
+        }
+    }
+})
 
 export default function Payment(props) {
     const storage = localStorage.getItem('booking');
     const [booking, setBooking] = useState(JSON.parse(storage));
     const [roomNumber, setRoomNumber] = useState('');
     const [room, setRoom] = useState([]);
+    const [account, setAccount] = useState([]);
     const handleChange = (event) => {
         setRoomNumber(event.target.value);
     }
-
     useEffect(() => {   
         axios.get("http://localhost:8080/room/name/" + booking.name)
         .then(res => {
@@ -21,9 +32,36 @@ export default function Payment(props) {
             console.log(err);
             alert("Cannot load room information");
         })
-    },[])
+    },[]);
 
-    //console.log(room);
+    useEffect(() => {
+        axios.get("http://localhost:8080/account/" + Cookies.get('id'))
+        .then(res => {
+            setAccount(res.data);
+        })
+        .catch(err => {
+            alert('Cannot load information account');
+        })
+    }, [])
+
+    const handleSubmit = () => {
+        axios.post(`http://localhost:8080/booking/`, {
+            id: 2802,
+            accountId: account.id,  
+            roomNumber: parseInt(roomNumber, 10),
+            checkIn: moment(moment(booking.checkIn, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD'),
+            checkOut: moment(moment(booking.checkOut, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD'),
+        })
+        .then(response => {
+            console.log(response);
+            alert("Booking Compeleted!");
+            window.location.reload();
+        })
+        .catch(error => {
+            console.log(error);
+            alert("error");
+        })
+    };
 
     return (
         <Container sx={{marginTop: 2}} style={{marginTop: '70px'}}>
@@ -34,14 +72,14 @@ export default function Payment(props) {
                         component="img"
                         image={booking.image}
                         alt="image"
-                        height={150}
+                        height={170}
                     />
                 </Grid>
 
                 <Grid item md={8} sx={{textAlign:'left', marginLeft: 2}}>
-                    <Typography variant="inherit">{booking.name}</Typography>
-                    <Typography variant="inherit">{booking.checkIn} to {booking.checkOut} | 2 nights</Typography>
-                    <Typography variant="h6" justifyItems="end">Total Price For Stay:  {booking.price}$</Typography>
+                    <Typography variant="h6">{booking.name}</Typography>
+                    <Typography variant="h6">{moment(booking.checkIn).format('DD-MM-YYYY')} to {moment(booking.checkOut).format('DD-MM-YYYY')} | {moment(booking.checkOut).diff(moment(booking.checkIn), 'days')} nights</Typography>
+                    <Typography variant="h5" justifyItems="end">Total Price For Stay:  {booking.price * moment(booking.checkOut).diff(moment(booking.checkIn), 'days')}$</Typography>
                     <FormControl variant="outlined" sx={{ m: 1, minWidth: 250 }}>
                         <InputLabel id="demo-simple-select-label">Choose Room Number</InputLabel>
                         <Select
@@ -66,93 +104,32 @@ export default function Payment(props) {
             <Grid container sx={{marginTop: 5}}>
                 <Grid item md={6} sx={{textAlign:'left'}}>
                     <Typography variant="h5">Guest Information</Typography>
-                    <Grid container sx={{backgroundColor: "#FCEBD7",marginTop: 2}}>
-                        <TextField
-                            id="firstname"
-                            label="First Name"
-                            defaultValue="Hello World"
-                            InputProps={{
-                                readOnly: true,
-                            }}
-                            variant="filled"
-                            fullWidth
-                            sx={{margin: 2}}
-                            
-                        />
-                        <TextField
-                            id="lastname"
-                            label="Last Name"
-                            defaultValue="Hello World"
-                            InputProps={{
-                                readOnly: true,
-                            }}
-                            variant="filled"
-                            fullWidth
-                            sx={{margin: 2}}
-                        />
-                        <TextField
-                            id="email"
-                            label="Email address"
-                            defaultValue="Hello World"
-                            InputProps={{
-                                readOnly: true,
-                            }}
-                            variant="filled"
-                            fullWidth
-                            sx={{margin: 2}}
-                        />
-                        <TextField
-                            id="country"
-                            label="Country/Region"
-                            defaultValue="Hello World"
-                            InputProps={{
-                                readOnly: true,
-                            }}
-                            variant="filled"
-                            fullWidth
-                            sx={{margin: 2}}
-                        />
-                        <TextField
-                            id="phone"
-                            label="Phone Number"
-                            defaultValue="Hello World"
-                            InputProps={{
-                                readOnly: true,
-                            }}
-                            variant="filled"
-                            fullWidth
-                            sx={{margin: 2}}
-                        />
-                        <TextField
-                            id="dob"
-                            label="Date of Birth"
-                            defaultValue="Hello World"
-                            InputProps={{
-                                readOnly: true,
-                            }}
-                            variant="filled"
-                            fullWidth
-                            sx={{margin: 2}}
-                        />
+                    <Grid item sx={{backgroundColor: "#FCEBD7",marginTop: 2}}>
+                        <Typography variant="caption" marginLeft={2} marginTop={2}>First Name</Typography>
+                        <Typography variant="h6" marginLeft={2}>{account.firstName}</Typography>
+                        <Typography variant="caption" marginLeft={2} marginTop={5}>Last Name</Typography>
+                        <Typography variant="h6" marginLeft={2}>{account.lastName}</Typography>
+                        <Typography variant="caption" marginLeft={2} marginTop={5}>Email</Typography>
+                        <Typography variant="h6" marginLeft={2}>{account.email}</Typography>
+                        <Typography variant="caption" marginLeft={2} marginTop={2}>Date of Birth</Typography>
+                        <Typography variant="h6" marginLeft={2}>{moment(account.dob).format('DD-MM-YYYY')}</Typography>
+                        <Typography variant="caption" marginLeft={2} marginTop={2}>Phone</Typography>
+                        <Typography variant="h6" marginLeft={2}>{account.phone}</Typography>
+                        <Typography variant="caption" marginLeft={2} marginTop={2}>Country/Region</Typography>
+                        <Typography variant="h6" marginLeft={2}>{account.country}</Typography>
                     </Grid>
                 </Grid>
                 <Grid item md={2}></Grid>
                 <Grid item md={4} sx={{textAlign:"left"}}>
-                    <Typography variant="h5">Payment Information</Typography>
-                    <Grid container sx={{backgroundColor: "#FCEBD7",marginTop: 2}}>
-                        <TextField
-                            id="firstname"
-                            label="First Name"
-                            defaultValue="Hello World"
-                            InputProps={{
-                                readOnly: true,
-                            }}
-                            variant="filled"
-                            fullWidth
-                            sx={{margin: 2}}
-                            
-                        />
+                    <Typography variant="h5">Terms and Condition</Typography>
+                    <Grid item  sx={{backgroundColor: "#FCEBD7",marginTop: 2, marginBottom: 2}}>
+                        <Typography variant="inherit">I certify that I have read and accept the Terms of Use and Privacy Statement and I have read
+                        and understand the Rate Description and Rate Rules for my reservation.<br /> <br /> I am at least 18 years of age and at least
+                        one guest in my party will meet the minimum check-in age requirement for the hotel upon arrival.<br /> <br />
+                        Minimum Check-in Age: 18
+                        </Typography>
                     </Grid>
+                    <ThemeProvider theme={theme}><Button variant="contained" color="buttonColor" onClick={() => handleSubmit()}>Submit</Button></ThemeProvider>
                 </Grid>
             </Grid>
         </Container>

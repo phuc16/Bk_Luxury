@@ -81,8 +81,8 @@ const ProtectedRoute = (props) => {
     else if(props.path === "/adminBooking") {
       return <Redirect to ="/" />
     }
-    else if(props.path === "/payment") {
-      return <Redirect to = "/" />
+    else if(props.path === "/payment") { //chuyển sang trang sign in
+      return <Redirect to = "/signin" />
     }
     else {
       return <Route path={props.path} component={props.component}></Route>

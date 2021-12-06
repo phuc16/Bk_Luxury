@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import data from './MOCK_DATA.json';
 import Payment from '../Payment';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const theme= createTheme({
     palette: {
@@ -17,12 +18,18 @@ const theme= createTheme({
 
 export default function RoomInfo(props) {
     const searchItem = props.searchItem;
-    const checkIn = props.checkIn;
-    const checkOut = props.checkOut;
+    var checkIn = props.checkIn;
+    var checkOut = props.checkOut;
+
+    //handle format checkIn checkOut
+    checkIn = checkIn === undefined ? '' : moment(moment(checkIn, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD');
+    checkOut = checkOut === undefined ? '' : moment(moment(checkOut, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD');
+    console.log(checkIn);
+    console.log(checkOut);
 
     let booking = {
-        checkIn: props.checkIn,
-        checkOut: props.checkOut,
+        checkIn: checkIn,
+        checkOut: checkOut,
         name: '',
         image: '',
         price: ''

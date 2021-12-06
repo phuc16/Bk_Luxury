@@ -17,7 +17,7 @@ export default function Product() {
   React.useEffect(()=>{
     axios.get('http://localhost:8080/booking')
     .then(response=>{
-      // console.log(response.data);
+      console.log(response.data);
       for (let i = 0; i < response.data.length; i++) {
         const checkIn = new Date(response.data[i].checkIn);
         const checkOut = new Date(response.data[i].checkOut);
