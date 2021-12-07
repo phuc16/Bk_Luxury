@@ -62,8 +62,8 @@ Booking.findByNumber = (roomNumber, result) => {
         }
 
         if (res.length) {
-            console.log("found booking: ", res[0]);
-            result(null, res[0]);
+            console.log("found booking: ", res);
+            result(null, res);
             return;
         }
 

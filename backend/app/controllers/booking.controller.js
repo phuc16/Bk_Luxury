@@ -4,7 +4,7 @@ const Booking = require("../models/booking.model.js");
 exports.create = (req, res) => {
     // Validate request
     if (!req.body) {
-        res.status(400).send({
+        return res.status(400).send({
             message: "Content can not be empty!"
         });
     }
@@ -19,28 +19,37 @@ exports.create = (req, res) => {
             message: "Invalid input!"
         });
     }
-    else if (true){
-        return res.status(400).send({
-            message: `Room was booked from ${req.params.checkIn} to ${req.params.checkOut} !`
-        });
-    }
 
-    // Create a Booking
-    const booking = new Booking({
-        id: req.body.id,
-        accountId: req.body.accountId,
-        roomNumber: req.body.roomNumber,
-        checkIn: req.body.checkIn,
-        checkOut: req.body.checkOut
-    });
+    Booking.findByNumber(req.body.roomNumber, (err, data) => {
+        let check = true;
+        for (let datas of data){
+            if (!((new Date(req.body.checkIn) > new Date(datas.checkOut)) || (new Date(req.body.checkOut) < new Date(datas.checkIn)))){
+                check = false;
+                return res.status(400).send({
+                    message: `Room was booked from ${req.params.checkIn} to ${req.params.checkOut} !`
+                });
+            }
+        }
 
-    Booking.create(booking, (err, data) => {
-        if (err)
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while creating the Booking."
+        if (check){
+            // Create a Booking
+            const booking = new Booking({
+                id: req.body.id,
+                accountId: req.body.accountId,
+                roomNumber: req.body.roomNumber,
+                checkIn: req.body.checkIn,
+                checkOut: req.body.checkOut
             });
-        else res.send(data);
+
+            Booking.create(booking, (err, data) => {
+                if (err)
+                    res.status(500).send({
+                        message:
+                            err.message || "Some error occurred while creating the Booking."
+                    });
+                else res.send(data);
+            });
+        }
     });
 };
 
@@ -77,18 +86,32 @@ exports.update = (req, res) => {
         });
     }
 
-    const booking = {
-        id: req.params.id,
-        info: req.body
-    };
-
-    Booking.update(booking, (err, data) => {
-        if (err)
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while updating the Booking."
+    Booking.findByNumber(req.body.roomNumber, (err, data) => {
+        let check = true;
+        for (let datas of data){
+            if (!((new Date(req.body.checkIn) > new Date(datas.checkOut)) || (new Date(req.body.checkOut) < new Date(datas.checkIn)))){
+                check = false;
+                return res.status(400).send({
+                    message: `Room was booked from ${req.params.checkIn} to ${req.params.checkOut} !`
+                });
+            }
+        }
+        
+        if (check){
+            const booking = {
+                id: req.params.id,
+                info: req.body
+            };
+        
+            Booking.update(booking, (err, data) => {
+                if (err)
+                    res.status(500).send({
+                        message:
+                            err.message || "Some error occurred while updating the Booking."
+                    });
+                else res.send(data);
             });
-        else res.send(data);
+        }
     });
 };
 
