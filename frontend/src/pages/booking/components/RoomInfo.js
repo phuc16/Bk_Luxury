@@ -45,10 +45,24 @@ export default function RoomInfo(props) {
     console.log(room);
 
     function handleClick(val) {
+        console.log(booking.checkIn);
+        if(!moment(booking.checkIn).isValid()) {
+            alert('Please input check-in');
+            return;
+        }
+        else if(!moment(booking.checkOut).isValid()) {
+            alert('Please input check-out');
+            return;
+        }
+        else if(moment(booking.checkOut).diff(moment(booking.checkIn), 'days') <= 0) {
+            alert("Please input check-out date after check-in date");
+            return;
+        }
         booking.name = val.name;
         booking.image = val.picture;
         booking.price = val.price;
         localStorage.setItem('booking', JSON.stringify(booking));
+        window.location.href= "/payment";
     }
     return (
         <div>
@@ -75,7 +89,7 @@ export default function RoomInfo(props) {
                         </Grid>
                         <Grid item md={2} direction='column' alignSelf='center'>
                             <Typography variant="inherit">From {val.price}$</Typography>
-                            <ThemeProvider theme={theme}><Button variant="contained" color="buttonColor" component={Link} to={'/payment'} onClick={() => handleClick(val)}>Select room</Button></ThemeProvider>
+                            <ThemeProvider theme={theme}><Button variant="contained" color="buttonColor" onClick={() => handleClick(val)}>Select room</Button></ThemeProvider>
                         </Grid>
                     </Grid>
                 )
