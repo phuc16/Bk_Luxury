@@ -42,7 +42,7 @@ export default function Payment(props) {
         .catch(err => {
             alert('Cannot load information account');
         })
-    }, [])
+    }, []);
     const handleSubmit = () => {
         axios.post(`http://localhost:8080/booking/`, {
             accountId: account.id,  
