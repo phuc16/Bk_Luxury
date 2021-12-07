@@ -22,12 +22,14 @@ exports.create = (req, res) => {
 
     Booking.findByNumber(req.body.roomNumber, (err, data) => {
         let check = true;
-        for (let datas of data){
-            if (!((new Date(req.body.checkIn) > new Date(datas.checkOut)) || (new Date(req.body.checkOut) < new Date(datas.checkIn)))){
-                check = false;
-                return res.status(400).send({
-                    message: `Room was booked from ${req.params.checkIn} to ${req.params.checkOut} !`
-                });
+        if (data){
+            for (let datas of data){
+                if (!((new Date(req.body.checkIn) > new Date(datas.checkOut)) || (new Date(req.body.checkOut) < new Date(datas.checkIn)))){
+                    check = false;
+                    return res.status(400).send({
+                        message: `Room was booked from ${req.params.checkIn} to ${req.params.checkOut} !`
+                    });
+                }
             }
         }
 
@@ -88,12 +90,14 @@ exports.update = (req, res) => {
 
     Booking.findByNumber(req.body.roomNumber, (err, data) => {
         let check = true;
-        for (let datas of data){
-            if (!((new Date(req.body.checkIn) > new Date(datas.checkOut)) || (new Date(req.body.checkOut) < new Date(datas.checkIn)))){
-                check = false;
-                return res.status(400).send({
-                    message: `Room was booked from ${req.params.checkIn} to ${req.params.checkOut} !`
-                });
+        if (data){
+            for (let datas of data){
+                if (!((new Date(req.body.checkIn) > new Date(datas.checkOut)) || (new Date(req.body.checkOut) < new Date(datas.checkIn)))){
+                    check = false;
+                    return res.status(400).send({
+                        message: `Room was booked from ${req.params.checkIn} to ${req.params.checkOut} !`
+                    });
+                }
             }
         }
         
