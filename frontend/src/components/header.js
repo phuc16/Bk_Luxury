@@ -176,17 +176,27 @@ const Header = (props) => {
                         <Typography variant="h6"> Service</Typography>
                       </MenuItem>
                     
-                   
-                      <MenuItem component={Link} to={'/signin'}
-                        onClick={() => setAnchor(null)}
-                        
-                       
-                      >
-                        <ListItemIcon>
-                          <LockOpenIcon fontSize="large"/>
-                        </ListItemIcon>
-                        <Typography variant="h6"> Sign in </Typography>
-                      </MenuItem>
+                      { isLogin ?
+                        <MenuItem
+                          onClick={() => setAnchor(null)}
+                          onClick={() => handleSignOut()}
+                        >
+                          <ListItemIcon>
+                            <LockOpenIcon fontSize="large"/>
+                          </ListItemIcon>
+                          <Typography variant="h6"> Sign out </Typography>
+                        </MenuItem> 
+
+                      :  
+                        <MenuItem component={Link} to={'/signin'}
+                            onClick={() => setAnchor(null)}
+                          >
+                            <ListItemIcon>
+                              <LockOpenIcon fontSize="large"/>
+                            </ListItemIcon>
+                            <Typography variant="h6"> Sign in </Typography>
+                          </MenuItem> }
+                      
                     
                     
                     <MenuItem component={Link} to={'/booking'}
