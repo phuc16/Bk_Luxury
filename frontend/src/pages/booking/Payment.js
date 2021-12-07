@@ -43,10 +43,8 @@ export default function Payment(props) {
             alert('Cannot load information account');
         })
     }, [])
-
     const handleSubmit = () => {
         axios.post(`http://localhost:8080/booking/`, {
-            id: 2802,
             accountId: account.id,  
             roomNumber: parseInt(roomNumber, 10),
             checkIn: moment(moment(booking.checkIn, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD'),
