@@ -19,9 +19,10 @@ import Header from '../components/header';
 import React, { useState } from 'react';
 import AppProvider from '../components/AppProvider';
 import Cookies from 'js-cookie';
-
+import AdminAccount from './admin/accounts/adminAccount';
 var isLogin = Cookies.get('id');
 var isAdmin = Cookies.get('isAdmin');
+
 
 // Condition for authentication
 if(isLogin) {
@@ -67,6 +68,9 @@ const ProtectedRoute = (props) => {
     else if(props.path === "/adminRoom") {
       return <Redirect to="/" />
     }
+    else if(props.path === "/adminAccount") {
+      return <Redirect to="/" />
+    }
     else if(props.path === "/adminBooking") {
       return <Redirect to="/" />
     }
@@ -79,6 +83,9 @@ const ProtectedRoute = (props) => {
       return <Redirect to ="/" />
     }
     else if(props.path === "/adminBooking") {
+      return <Redirect to ="/" />
+    }
+    else if(props.path === "/adminAccount") {
       return <Redirect to ="/" />
     }
     else if(props.path === "/payment") { //chuyển sang trang sign in
@@ -116,6 +123,7 @@ export default function Routes(){
           <ProtectedRoute exact path="/signin" component={SignIn} />
           <ProtectedRoute exact path="/adminRoom" component={Admin} />
           <ProtectedRoute exact path="/adminBooking" component = {AdminBooking} />
+          <ProtectedRoute exact path="/adminAccount" component = {AdminAccount} />
           <ProtectedRoute exact path="/"component={Home} />
         </Switch>
      
