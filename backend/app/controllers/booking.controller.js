@@ -19,6 +19,11 @@ exports.create = (req, res) => {
             message: "Invalid input!"
         });
     }
+    else if (true){
+        return res.status(400).send({
+            message: `Room was booked from ${req.params.checkIn} to ${req.params.checkOut} !`
+        });
+    }
 
     // Create a Booking
     const booking = new Booking({
@@ -85,6 +90,25 @@ exports.update = (req, res) => {
             });
         else res.send(data);
     });
+};
+
+
+exports.findByNumber = (req, res) => {
+    Booking.findByNumber(req.params.roomNumber, (err, data) => {
+        if (err) {
+            if (err.kind === "not_found") {
+                res.status(404).send({
+                message: `Not found Bookng with roomNumber ${req.params.roomNumber}.`
+                });
+            } 
+            else {
+                res.status(500).send({
+                message: "Error retrieving Bookng with roomNumber " + req.params.roomNumber
+                });
+            }
+        } 
+        else res.send(data);
+      }); 
 };
 
 // Delete a Booking with the booking id in the request

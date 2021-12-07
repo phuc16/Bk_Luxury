@@ -11,15 +11,15 @@ const Booking = function(booking) {
 }
 
 Booking.create = (newBooking, result) => {
-    sql.query("INSERT INTO booking SET ?", newBooking, (err, res) => {
-        if (err) {
-            console.log("error: ", err);
-            result(err, null);
-            return;
-        }
-        console.log("created booking: ", newBooking);
-        result(null, newBooking);
-    });
+        sql.query("INSERT INTO booking SET ?", newBooking, (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                result(err, null);
+                return;
+            }
+            console.log("created booking: ", newBooking);
+            result(null, newBooking);
+        });  
 };
   
 Booking.update = (booking, result) => {
@@ -51,6 +51,24 @@ Booking.getAll = (title, result) => {
         }
         console.log("Booking: ", res);
         result(null, res);
+    });
+};
+Booking.findByNumber = (roomNumber, result) => {
+    sql.query(`SELECT * FROM booking WHERE roomNumber = ${roomNumber}`, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+            return;
+        }
+
+        if (res.length) {
+            console.log("found booking: ", res[0]);
+            result(null, res[0]);
+            return;
+        }
+
+        // not found Room with the number
+        result({ kind: "not_found" }, null);
     });
 };
     
