@@ -21,11 +21,9 @@ exports.create = (req, res) => {
     }
 
     Booking.findByNumber(req.body.roomNumber, (err, data) => {
-        let check = true;
         if (data){
             for (let datas of data){
                 if (!((new Date(req.body.checkIn) > new Date(datas.checkOut)) || (new Date(req.body.checkOut) < new Date(datas.checkIn)))){
-                    check = false;
                     return res.status(400).send({
                         message: `Room was booked from ${req.params.checkIn} to ${req.params.checkOut} !`
                     });
@@ -33,25 +31,23 @@ exports.create = (req, res) => {
             }
         }
 
-        if (check){
-            // Create a Booking
-            const booking = new Booking({
-                id: req.body.id,
-                accountId: req.body.accountId,
-                roomNumber: req.body.roomNumber,
-                checkIn: req.body.checkIn,
-                checkOut: req.body.checkOut
-            });
+        // Create a Booking
+        const booking = new Booking({
+            id: req.body.id,
+            accountId: req.body.accountId,
+            roomNumber: req.body.roomNumber,
+            checkIn: req.body.checkIn,
+            checkOut: req.body.checkOut
+        });
 
-            Booking.create(booking, (err, data) => {
-                if (err)
-                    res.status(500).send({
-                        message:
-                            err.message || "Some error occurred while creating the Booking."
-                    });
-                else res.send(data);
-            });
-        }
+        Booking.create(booking, (err, data) => {
+            if (err)
+                res.status(500).send({
+                    message:
+                        err.message || "Some error occurred while creating the Booking."
+                });
+            else res.send(data);
+        });
     });
 };
 
@@ -89,11 +85,9 @@ exports.update = (req, res) => {
     }
 
     Booking.findByNumber(req.body.roomNumber, (err, data) => {
-        let check = true;
         if (data){
             for (let datas of data){
                 if (!((new Date(req.body.checkIn) > new Date(datas.checkOut)) || (new Date(req.body.checkOut) < new Date(datas.checkIn)))){
-                    check = false;
                     return res.status(400).send({
                         message: `Room was booked from ${req.params.checkIn} to ${req.params.checkOut} !`
                     });
@@ -101,21 +95,19 @@ exports.update = (req, res) => {
             }
         }
         
-        if (check){
-            const booking = {
-                id: req.params.id,
-                info: req.body
-            };
-        
-            Booking.update(booking, (err, data) => {
-                if (err)
-                    res.status(500).send({
-                        message:
-                            err.message || "Some error occurred while updating the Booking."
-                    });
-                else res.send(data);
-            });
-        }
+        const booking = {
+            id: req.params.id,
+            info: req.body
+        };
+    
+        Booking.update(booking, (err, data) => {
+            if (err)
+                res.status(500).send({
+                    message:
+                        err.message || "Some error occurred while updating the Booking."
+                });
+            else res.send(data);
+        });
     });
 };
 
