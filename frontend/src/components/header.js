@@ -248,6 +248,14 @@ const Header = (props) => {
 
                     {isAdmin && <Button className={classes.buttonMenu}
                       variant="text"
+                      component={Link} to={'/adminAccount'}
+                      color="default"
+                    >
+                      Manage Accounts
+                    </Button>}
+
+                    {isAdmin && <Button className={classes.buttonMenu}
+                      variant="text"
                       component={Link} to={'/adminRoom'}
                       color="default"
                     >

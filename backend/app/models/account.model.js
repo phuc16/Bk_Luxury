@@ -43,6 +43,25 @@ Account.findById = (id, result) => {
     });
 };
 
+Account.update = (account, result) => {
+    sql.query(`UPDATE account SET ? WHERE id = ${account.id}`, account.info, (err, res, fields) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+
+        if (res.affectedRows == 0) {
+        // not found Account with id
+        result({ kind: "not_found" }, null);
+        return;
+        }
+
+        console.log("updated Account with id: ", account.id);
+        result(null, res);
+    });
+};
+
 Account.getAll = (title, result) => {
     let query = "SELECT * FROM account";
 

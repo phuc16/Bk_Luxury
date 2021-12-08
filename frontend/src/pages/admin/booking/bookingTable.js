@@ -126,7 +126,7 @@ function BookingDescription(props) {
 
   const addBooking = e =>{
     axios.post(`http://localhost:8080/booking/`, {
-        id:values.id,
+        //id:values.id,
         accountId: values.accountId,
         roomNumber: values.roomNumber,
         checkIn: values.checkIn,

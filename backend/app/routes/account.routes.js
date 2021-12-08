@@ -15,7 +15,7 @@ module.exports = app => {
     router.get("/:id", account.findById);
   
     // Update an Account with id
-    //router.put("/:id", account.update);
+    router.put("/:id", account.update);
   
     // Delete an Account with id
     router.delete("/:id", account.delete);

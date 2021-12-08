@@ -47,8 +47,8 @@ export default function Payment(props) {
         axios.post(`http://localhost:8080/booking/`, {
             accountId: account.id,  
             roomNumber: parseInt(roomNumber, 10),
-            checkIn: moment(moment(booking.checkIn, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD'),
-            checkOut: moment(moment(booking.checkOut, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD'),
+            checkIn: booking.checkIn,
+            checkOut: booking.checkOut,
         })
         .then(response => {
             console.log(response);

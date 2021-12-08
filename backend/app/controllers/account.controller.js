@@ -67,7 +67,35 @@ exports.findById = (req, res) => {
 
 // Update an Account identified by id in the request
 exports.update = (req, res) => {
-  
+    if (!req.body) {
+        return res.status(400).send({
+            message: "Content can not be empty!"
+        });
+    }
+    else if ((isNaN(req.params.id) || req.params.id == '') ||
+            (req.body.firstName== '') || 
+            (req.body.lastName == '') ||
+            (req.body.phone == '') ||
+            (req.body.country == '') ||
+            (req.body.dob == '')) {
+                
+        return res.status(400).send({
+            message: "Invalid input!"
+        });
+    }
+    const account = {
+        id: req.params.id,
+        info: req.body
+    };
+
+    Account.update(account, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while updating the Account."
+            });
+        else res.send(data);
+    });
 };
 
 // Delete an Account with the specified id in the request

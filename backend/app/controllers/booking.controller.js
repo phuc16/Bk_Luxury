@@ -8,7 +8,8 @@ exports.create = (req, res) => {
             message: "Content can not be empty!"
         });
     }
-    else if ((isNaN(req.body.id) || req.body.id == '') || 
+    else if (
+            //(isNaN(req.body.id) || req.body.id == '') || 
             (isNaN(req.body.accountId) || req.body.accountId== '') || 
             (isNaN(req.body.roomNumber) || req.body.roomNumber == '') || 
             (req.body.checkIn == '') ||
