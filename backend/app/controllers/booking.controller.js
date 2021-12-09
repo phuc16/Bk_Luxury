@@ -10,7 +10,6 @@ exports.create = (req, res) => {
     }
     else if (
             //(isNaN(req.body.id) || req.body.id == '') || 
-            (isNaN(req.body.accountId) || req.body.accountId== '') || 
             (isNaN(req.body.roomNumber) || req.body.roomNumber == '') || 
             (req.body.checkIn == '') ||
             (req.body.checkOut == '') ||
@@ -35,7 +34,6 @@ exports.create = (req, res) => {
 
         // Create a Booking
         const booking = new Booking({
-            id: req.body.id,
             accountId: req.body.accountId,
             roomNumber: req.body.roomNumber,
             checkIn: req.body.checkIn,

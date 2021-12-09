@@ -11,6 +11,7 @@ import '../css/table.css';
 import Button from '@mui/material/Button';
 import moment from 'moment';
 import CloseIcon from '@mui/icons-material/Close';
+import { Typography } from "@mui/material";
 
 export default function Product() {
   const [datas, setData] = React.useState([]);
@@ -93,6 +94,7 @@ export default function Product() {
   return (
     <div>
       <div className="table-custom room-table">
+      <Typography variant="h4" style={{fontWeight: 'bold', marginBottom:'30px'}}> MANAGE ACCOUNT</Typography>
          {/* https://react-bootstrap-table.github.io/react-bootstrap-table2/docs/about.html  */}
         <BootstrapTable  
           keyField="id" data={datas} 
@@ -149,7 +151,6 @@ function AccountDescription(props) {
 
   const addAccount = e =>{
     axios.post(`http://localhost:8080/account`, {
-      id: values.id,
       firstName: values.firstName,
       lastName: values.lastName,
       email: values.email,
@@ -171,6 +172,7 @@ function AccountDescription(props) {
   
   return(
     <div className="popup-box">
+      
     <Modal.Dialog className="popup-content account-table">
       <Modal.Header style={{backgroundColor: '#D2B58B', height: "45px"}} onClick={() => setAccountDescription({tog:-1})}>
         <Modal.Title className='dataTitle'>

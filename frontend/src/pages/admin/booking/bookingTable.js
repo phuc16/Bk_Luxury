@@ -11,6 +11,7 @@ import '../css/table.css';
 import Button from '@mui/material/Button';
 import moment from 'moment';
 import CloseIcon from '@mui/icons-material/Close';
+import { Typography } from "@mui/material";
 
 export default function Product() {
   const [datas, setData] = React.useState([]);
@@ -74,6 +75,7 @@ export default function Product() {
   return (
     <div>
       <div className="table-custom room-table">
+        <Typography variant="h4" style={{fontWeight: 'bold', marginBottom:'30px'}}> MANAGE BOOKING</Typography>
          {/* https://react-bootstrap-table.github.io/react-bootstrap-table2/docs/about.html  */}
         <BootstrapTable  
           keyField="id" data={datas} 
@@ -171,13 +173,13 @@ function BookingDescription(props) {
       </Modal.Header>
       <Modal.Body>
         <form class="row g-3 needs-validation infoForm bookingForm" novalidate >
-            <div class="mb-4 row ">
+            {data.id === undefined ? '' : <div class="mb-4 row ">
                 <label class="form-label col-sm-3" for="id">ID</label>
                 <div class="col-sm-9">
                     <input type="number"  readOnly={data.id !== undefined} onChange={handleInputChange}  class="form-control" name="id" id="id" placeholder="" required defaultValue={data.id}/>
                     
                 </div>
-            </div>
+            </div>}
             <div class="mb-4 row ">
                 <label class="form-label col-sm-3" for="accountId">AccountID</label>
                 <div class="col-sm-9">

@@ -2,7 +2,6 @@ const sql = require("./db.js")
 
 //constructor
 const Booking = function(booking) {
-    this.id = booking.id;
     this.accountId = booking.accountId;
     this.roomNumber = booking.roomNumber;
     this.checkIn = booking.checkIn;

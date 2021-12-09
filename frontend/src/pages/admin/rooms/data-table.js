@@ -9,6 +9,7 @@ import './script';
 import '../css/table.css';
 import Button from '@mui/material/Button'
 import CloseIcon from '@mui/icons-material/Close';
+import { Typography } from "@mui/material";
 //import '../css/bootstrap.min.css'
 
 
@@ -86,6 +87,7 @@ export default function Product() {
   return (
     <div>
       <div className="table-custom room-table">
+      <Typography variant="h4" style={{fontWeight: 'bold', marginBottom:'30px'}}> MANAGE ROOM</Typography>
          {/* https://react-bootstrap-table.github.io/react-bootstrap-table2/docs/about.html  */}
         <BootstrapTable  
           keyField="id" data={datas} 
