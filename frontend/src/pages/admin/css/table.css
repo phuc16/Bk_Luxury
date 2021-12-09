@@ -215,3 +215,10 @@
     left: 25%;
     cursor: pointer;
 }
+
+/* PAGINATION CSS */
+.table-custom .page-item .page-link {
+    color: black;
+    border-color: #D2B58D;
+    width: 100px;
+}
