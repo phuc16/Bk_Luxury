@@ -278,6 +278,16 @@ const Header = (props) => {
                     Booking
                   </Button>
                   }
+
+                  {isLogin && <Button className={classes.buttonMenu}
+                      variant="text"
+                      component={Link} to={'/account'}
+                      color="default"
+                    >
+                      My Account
+                    </Button>
+                  }
+                  
                   
                     {isLogin ?
                     <Button className={classes.buttonMenu}

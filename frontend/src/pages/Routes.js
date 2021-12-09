@@ -54,9 +54,6 @@ const ProtectedRoute = (props) => {
     else if(props.path === "/signup") {
       return <Redirect to="/" />
     }
-    else if(props.path === "/account") {
-      return <Redirect to="/" />
-    }
     else {
       return <Route path={props.path} component={props.component}></Route>
     }
@@ -96,7 +93,7 @@ const ProtectedRoute = (props) => {
       return <Redirect to = "/signin" />
     }
     else if(props.path === "/account") {
-      return <Redirect to="/"/>
+      return <Redirect to="/signin"/>
     }
     else {
       return <Route path={props.path} component={props.component}></Route>

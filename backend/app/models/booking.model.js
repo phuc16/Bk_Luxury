@@ -70,6 +70,25 @@ Booking.findByNumber = (roomNumber, result) => {
         result({ kind: "not_found" }, null);
     });
 };
+
+Booking.findByAccountId = (accountId, result) => {
+    sql.query(`SELECT * FROM booking WHERE accountId = ${accountId}`, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+            return;
+        }
+
+        if (res.length) {
+            console.log("found booking: ", res);
+            result(null, res);
+            return;
+        }
+
+        // not found Room with the account Id
+        result({ kind: "not_found" }, null);
+    });
+};
     
 Booking.delete = (id, result) => {
     sql.query("DELETE FROM booking WHERE id = ?", id, (err, res) => {

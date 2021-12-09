@@ -130,6 +130,25 @@ exports.findByNumber = (req, res) => {
       }); 
 };
 
+exports.findByAccountId = (req, res) => {
+    Booking.findByAccountId(req.params.accountId, (err, data) => {
+        if (err) {
+            if (err.kind === "not_found") {
+                res.status(404).send({
+                message: `Not found Bookng with account Id ${req.params.accountId}.`
+                });
+            } 
+            else {
+                res.status(500).send({
+                message: "Error retrieving Bookng with accountId " + req.params.accountId
+                });
+            }
+        } 
+        else res.send(data);
+      }); 
+};
+
+
 // Delete a Booking with the booking id in the request
 exports.delete = (req, res) => {
     Booking.delete(req.params.id, (err, data) => {

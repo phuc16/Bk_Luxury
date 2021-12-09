@@ -77,7 +77,8 @@ exports.update = (req, res) => {
             (req.body.lastName == '') ||
             (req.body.phone == '') ||
             (req.body.country == '') ||
-            (req.body.dob == '')) {
+            (req.body.dob == '') ||
+            (req.body.password == '')) {
                 
         return res.status(400).send({
             message: "Invalid input!"

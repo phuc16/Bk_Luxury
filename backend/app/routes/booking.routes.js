@@ -12,6 +12,9 @@ module.exports = app => {
     // Retrieve a single Room with number
     router.get("/:roomNumber", booking.findByNumber);
 
+    // Retrieve booking with account id
+    router.get("/account/:accountId", booking.findByAccountId);
+
     // Update a Booking with id
     router.put("/:id", booking.update);
 
