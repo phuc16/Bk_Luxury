@@ -2,6 +2,7 @@
 Hotel Management System
 
 Programing Intergration Project (CO3103)-(HK211) Assignment.
+
 Author: Nguyễn Quanh Anh, Nguyễn Hoàng Minh Châu, Lê Minh Nhật, Trương Hoàng Phúc, Đặng Quốc Thanh.
 
 ## Instruction
