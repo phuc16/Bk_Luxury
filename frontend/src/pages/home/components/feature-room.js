@@ -109,7 +109,7 @@ export default function FeatureRoom() {
             <Grid item xs={12} md={4} rowSpacing={1} height="100%" padding="1vh" component={Link} to='/DeluxeRoom' style={{textDecoration: 'none'}}>
                 <Item >
                     <img width="100%" src= 'https://www.icsaigon.com/sites/icsaigon/files/styles/feature_photo_rec/public/2021-06/Deluxe%20King%20InterContinental%20Saigon.png?itok=yu4dBzx1' alt=''></img>
-                    <Typography padding="2vh 0" variant="h4" component="div" textAlign="center" sx={{ flexGrow: 1 }} height="100px" color="#A77B5A"> Club Intercontinental Room</Typography>
+                    <Typography padding="2vh 0" variant="h4" component="div" textAlign="center" sx={{ flexGrow: 1 }} height="100px" color="#A77B5A"> Deluxe King Room</Typography>
                     <Typography padding="0 1vw" variant="body1" gutterBottom textAlign="left" color={textcolor} minHeight="35vh" maxHeight="70vh" paddingBottom="2vh" >
                         Ideal for both business and leisure travellers, timeless luxury and functional amenities unite, all with a stunning view of the city. 
                         Take advantage of the 24-hour in-room dining service, laundry service and personal business centre, which includes an in-room telephone line and exclusive access to the fax and printer in the Business Centre at InterContinental Saigon Hotel.
