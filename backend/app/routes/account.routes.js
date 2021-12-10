@@ -23,5 +23,5 @@ module.exports = app => {
     // Delete all Accounts
     router.delete("/", account.deleteAll);
 
-    app.use('/account', router);
+    app.use('/api/account', router);
   };

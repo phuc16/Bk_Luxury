@@ -31,5 +31,5 @@ module.exports = app => {
     // Delete all Rooms
     router.delete("/", room.deleteAll);
   
-    app.use('/room', router);
+    app.use('/api/room', router);
   };

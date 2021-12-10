@@ -58,7 +58,7 @@ export default function SignUp() {
     const handleSubmit = e => {
         e.preventDefault()
         if (validate()){
-            axios.post('http://localhost:8080/account', {
+            axios.post('/api/account', {
                 firstName: values.firstName,
                 lastName: values.lastName,
                 email: values.email,

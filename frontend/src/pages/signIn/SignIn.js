@@ -45,7 +45,7 @@ export default function SignIn() {
             email: values.email,
             password: values.password
           }
-          axios.post('http://localhost:8080/account/login', { input }, {
+          axios.post('/api/account/login', { input }, {
             withCredentials: true,
           })
           .then((response) => {

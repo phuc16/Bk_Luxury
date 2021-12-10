@@ -16,7 +16,7 @@ import { Typography } from "@mui/material";
 export default function Product() {
   const [datas, setData] = React.useState([]);
   React.useEffect(()=>{
-    axios.get('http://localhost:8080/booking')
+    axios.get('/api/booking')
     .then(response=>{
       console.log(response.data);
       for (let i = 0; i < response.data.length; i++) {
@@ -115,7 +115,7 @@ function BookingDescription(props) {
 
   const deleteBooking = e =>{
     setBookingDescription({tog: -1})
-    axios.delete(`http://localhost:8080/booking/${values.id}`)
+    axios.delete(`/api/booking/${values.id}`)
     .then(response => {
       console.log(response);
       window.location.reload();
@@ -127,7 +127,7 @@ function BookingDescription(props) {
   }
 
   const addBooking = e =>{
-    axios.post(`http://localhost:8080/booking/`, {
+    axios.post(`/api/booking/`, {
         //id:values.id,
         accountId: values.accountId,
         roomNumber: values.roomNumber,
@@ -145,7 +145,7 @@ function BookingDescription(props) {
   }
 
   const editBooking = e => {
-    axios.put(`http://localhost:8080/booking/${values.id}`, {
+    axios.put(`/api/booking/${values.id}`, {
       accountId: values.accountId,
       roomNumber: values.roomNumber,
       checkIn: values.checkIn,

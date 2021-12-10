@@ -17,7 +17,7 @@ import { Typography } from "@mui/material";
 export default function Product() {
   const [datas, setData] = React.useState([]);
   React.useEffect(()=>{
-    axios.get('http://localhost:8080/room')
+    axios.get('/api/room')
     .then(response=>{
       console.log(response.data);
       setData(response.data);
@@ -133,7 +133,7 @@ function RoomDescription(props) {
 
   const deleteRoom = e =>{
     setroomDescription({id: -1})
-    axios.delete(`http://localhost:8080/room/${values.number}`)
+    axios.delete(`/api/room/${values.number}`)
     .then(response => {
       console.log(response);
       window.location.reload();
@@ -145,7 +145,7 @@ function RoomDescription(props) {
   }
 
   const addRoom = e =>{
-    axios.post(`http://localhost:8080/room/`, {
+    axios.post(`/api/room/`, {
       number: values.number, 
       name: values.name,
       description: values.description,
@@ -167,7 +167,7 @@ function RoomDescription(props) {
   }
 
   const editRoom = e => {
-    axios.put(`http://localhost:8080/room/${values.number}`, {
+    axios.put(`/api/room/${values.number}`, {
       name: values.name,
       description: values.description,
       picture: values.picture,

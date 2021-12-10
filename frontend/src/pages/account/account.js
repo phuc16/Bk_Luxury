@@ -32,7 +32,7 @@ export default function LabTabs() {
   const id = Cookies.get('id');
 
   React.useEffect(() => {
-    axios.get("http://localhost:8080/account/" + id)
+    axios.get("/api/account/" + id)
     .then(res => {
         res.data = {...res.data, dob: moment(res.data.dob).format('DD-MM-YYYY')};
         setAccount(res.data);
@@ -98,7 +98,7 @@ export default function LabTabs() {
     // };
     const handleUpdateInfo = () => {
         if(validate(account)) {
-            axios.put(`http://localhost:8080/account/${id}`, {
+            axios.put(`/api/account/${id}`, {
                 firstName: account.firstName,
                 lastName: account.lastName,
                 dob: moment(moment(account.dob, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD'),
@@ -118,7 +118,7 @@ export default function LabTabs() {
     }
     const handleUpdatePassword = () => {
         if(validatePassword()) {
-            axios.put(`http://localhost:8080/account/${id}`, {
+            axios.put(`/api/account/${id}`, {
                 password: newPasswordConfirmed
             })
             .then(response => {

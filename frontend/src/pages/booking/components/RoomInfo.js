@@ -36,7 +36,7 @@ export default function RoomInfo(props) {
     }
     const [room, setRoom] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:8080/room/GroupByName")
+        axios.get("/api/room/GroupByName")
         .then(res => {
             setRoom(res.data);
         })

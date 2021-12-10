@@ -12,7 +12,7 @@ import { ThirdPersonDeluxe } from './components/ServiceList';
 
 
 let Rooms = [];
-axios.get(`http://localhost:8080/room/type/deluxe`)
+axios.get(`/api/room/type/deluxe`)
     .then(res => {
         Rooms = res.data
         Rooms.push(ThirdPersonDeluxe);

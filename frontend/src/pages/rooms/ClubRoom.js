@@ -12,7 +12,7 @@ import axios from 'axios'
 import React from 'react';
 
 let Rooms = [];
-axios.get(`http://localhost:8080/room/type/club`)
+axios.get(`/api/room/type/club`)
     .then(res => {
         Rooms = res.data
         Rooms.push(ThirdPersonClub);

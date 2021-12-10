@@ -16,7 +16,7 @@ import { Typography } from "@mui/material";
 export default function Product() {
   const [datas, setData] = React.useState([]);
   React.useEffect(()=>{
-    axios.get('http://localhost:8080/account')
+    axios.get('/api/account')
     .then(response=>{
       console.log(response.data);
       for (let i = 0; i < response.data.length; i++) {
@@ -138,7 +138,7 @@ function AccountDescription(props) {
 
   const deleteAccount = e =>{
     setAccountDescription({tog: -1})
-    axios.delete(`http://localhost:8080/account/${values.id}`)
+    axios.delete(`/api/account/${values.id}`)
     .then(response => {
       console.log(response);
       window.location.reload();
@@ -150,7 +150,7 @@ function AccountDescription(props) {
   }
 
   const addAccount = e =>{
-    axios.post(`http://localhost:8080/account`, {
+    axios.post(`/api/account`, {
       firstName: values.firstName,
       lastName: values.lastName,
       email: values.email,

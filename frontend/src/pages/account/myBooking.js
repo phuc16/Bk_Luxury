@@ -9,7 +9,7 @@ export default function Booking() {
     console.log(id);
     const [booking, setBooking] = React.useState([]);
     React.useEffect(() => {
-        axios.get("http://localhost:8080/booking/account/" + id)
+        axios.get("/api/booking/account/" + id)
         .then(res => {
             for (let i = 0; i < res.data.length; i++) {
                 const checkIn = new Date(res.data[i].checkIn);

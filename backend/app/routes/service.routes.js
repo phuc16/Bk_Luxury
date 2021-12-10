@@ -19,5 +19,5 @@ module.exports = app => {
     router.delete("/name/:service", service.deleteByService);
 
 
-    app.use('/service', router);
+    app.use('/api/service', router);
 };

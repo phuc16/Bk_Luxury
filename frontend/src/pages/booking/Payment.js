@@ -24,7 +24,7 @@ export default function Payment(props) {
         setRoomNumber(event.target.value);
     }
     useEffect(() => {   
-        axios.get("http://localhost:8080/room/name/" + booking.name)
+        axios.get("/api/room/name/" + booking.name)
         .then(res => {
             setRoom(res.data);
         })
@@ -35,7 +35,7 @@ export default function Payment(props) {
     },[]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/account/" + Cookies.get('id'))
+        axios.get("/api/account/" + Cookies.get('id'))
         .then(res => {
             setAccount(res.data);
         })
@@ -44,7 +44,7 @@ export default function Payment(props) {
         })
     }, []);
     const handleSubmit = () => {
-        axios.post(`http://localhost:8080/booking/`, {
+        axios.post(`/api/booking/`, {
             accountId: account.id,  
             roomNumber: parseInt(roomNumber, 10),
             checkIn: booking.checkIn,
