@@ -7,7 +7,7 @@ import {
 
 import Booking from './booking/Booking';
 import Home from './home/Home';
-import Rooms from './rooms/Rooms';
+import AllRooms from './rooms/AllRooms';
 import Services from './services/Services';
 import SignIn from './signIn/SignIn';
 import SignUp from './signIn/SignUp'
@@ -21,6 +21,10 @@ import AppProvider from '../components/AppProvider';
 import Cookies from 'js-cookie';
 import AdminAccount from './admin/accounts/adminAccount';
 import Account from './account/account';
+import ClubRoom from './rooms/ClubRoom';
+import DeluxeRoom from './rooms/DeluxeRoom'
+import SuperiorRoom from "./rooms/SuperiorRoom";
+import ScrollToTop from "./rooms/ScrollToTop";
 var isLogin = Cookies.get('id');
 var isAdmin = Cookies.get('isAdmin');
 
@@ -107,6 +111,7 @@ export default function Routes(){
     <div>
       <AppProvider>
       <Router>
+        <ScrollToTop/>
         <Header/>
         {/* <Link to="/">Home</Link>
       
@@ -118,10 +123,10 @@ export default function Routes(){
       
         <Link to="/signin">SignIn</Link> */}
      
-        <Switch>
+        <Switch>   
           <ProtectedRoute exact path="/booking" component={Booking} />
           <ProtectedRoute exact path="/payment" component={Payment} />
-          <ProtectedRoute exact path="/rooms" component={Rooms} />
+          <ProtectedRoute exact path="/rooms" component={AllRooms} />
           <ProtectedRoute exact path="/services" component={Services} />
           <ProtectedRoute exact path="/signup" component={SignUp} />
           <ProtectedRoute exact path="/signin" component={SignIn} />
@@ -129,6 +134,9 @@ export default function Routes(){
           <ProtectedRoute exact path="/adminBooking" component = {AdminBooking} />
           <ProtectedRoute exact path="/adminAccount" component = {AdminAccount} />
           <ProtectedRoute exact path ="/account" component={Account}/>
+          <ProtectedRoute exact path ="/ClubRoom" component = {ClubRoom} />
+          <ProtectedRoute exact path ="/DeluxeRoom" component = {DeluxeRoom} />
+          <ProtectedRoute exact path ="/SuperiorRoom" component = {SuperiorRoom} />
           <ProtectedRoute exact path="/"component={Home} />
         </Switch>
         <div className="footer">
