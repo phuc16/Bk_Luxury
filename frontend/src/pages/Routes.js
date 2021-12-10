@@ -131,11 +131,11 @@ export default function Routes(){
           <ProtectedRoute exact path ="/account" component={Account}/>
           <ProtectedRoute exact path="/"component={Home} />
         </Switch>
-     
+        <div className="footer">
+          <Footer/>
+        </div>
       </Router>
-      <div className="footer">
-        <Footer/>
-      </div>
+      
       </AppProvider>
     </div>
   );
