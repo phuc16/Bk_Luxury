@@ -19,10 +19,10 @@ export default function Main() {
                             <BedIcon style={{fontSize: "2rem", color: "#a77b5a"}} />
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography style={{fontWeight: "400", color: "#a77b5a"}} variant="h2">DELUXE KING ROOM</Typography>
+                            <Typography style={{fontWeight: "400", color: "#a77b5a"}} variant="h3">DELUXE KING ROOM</Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography style={{paddingTop: "10px"}} variant="h6">Ideal for both business and leisure travellers, timeless luxury and functional amenities unite, all with a stunning view of the city. Take advantage of the 24-hour in-room dining service, laundry service and personal business centre, which includes an in-room telephone line and exclusive access to the fax and printer in the Business Centre at InterContinental Saigon Hotel.</Typography>
+                            <Typography style={{paddingTop: "10px"}} variant="h5">Ideal for both business and leisure travellers, timeless luxury and functional amenities unite, all with a stunning view of the city. Take advantage of the 24-hour in-room dining service, laundry service and personal business centre, which includes an in-room telephone line and exclusive access to the fax and printer in the Business Centre at InterContinental Saigon Hotel.</Typography>
                         </Grid>
                     </Grid>
                 </Box>
