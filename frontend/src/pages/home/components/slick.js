@@ -10,18 +10,20 @@ import {
 } from "react-router-dom";
 import '../asset/css/slick.css';
 
+
+
 const photo =[
   {
     name: 'photo 1',
-    url: ' https://www.icsaigon.com/sites/icsaigon/files/styles/home_slider/public/2021-05/ICSaigon_Frontpage_01.jpg?itok=r-XW1oRx'
+    src: 'https://i.ibb.co/Xj3P9Gw/ICSaigon-Frontpage.jpg'
   },
   {
     name: 'photo 2',
-    url: 'https://www.icsaigon.com/sites/icsaigon/files/styles/home_slider/public/2021-03/InterContinental-Saigon-Hotel-Lobby%20_0.jpg?h=73a3395a&itok=iNwh9Bic'
+    src: 'https://i.ibb.co/G0NcNB2/Inter-Continental-Saigon-Hotel-Lobby-0.jpg'
   },
   {
     name: 'photo 3',
-    url: 'https://www.icsaigon.com/sites/icsaigon/files/styles/home_slider/public/2021-06/ICSaigon_Frontpage_03_0.jpg?itok=ZQy9yxoT'
+    src: 'https://i.ibb.co/Mg9m9cc/ICSaigon-Frontpage-03-0.jpg'
   }
 ]
 
@@ -47,7 +49,7 @@ export default class SimpleSlider extends Component {
               <Typography className="brand">BK Luxury Hotel</Typography>
               <Button className="dis-btn" style={{backgroundColor: "#ECD4BB"}} variant="text" component={Link} to={'/rooms'}>Discover Now</Button>
              
-              <img height="100%" src={photo.url} className="img-slider" alt=''></img>
+              <img height="100%" src={photo.src} className="img-slider" alt=''></img>
             </div>
           )
         } )}
