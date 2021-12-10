@@ -100,8 +100,8 @@ function BookingDescription(props) {
     id:data.id,
     accountId: data.accountId,
     roomNumber: data.roomNumber,
-    checkIn: data.checkIn,
-    checkOut: data.checkOut,
+    checkIn: moment(moment(data.checkIn, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD'),
+    checkOut: moment(moment(data.checkOut, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD'),
   }
   const [values, setValues] = useState(initialFValues);
 
