@@ -10,6 +10,13 @@ import ImageItem6 from '../images3/Item6.png';
 import ImageItem7 from '../images3/Item7.png';
 import ImageItem8 from '../images3/Item8.png';
 
+const details = [
+    "42-inch satellite LCD television, DVD player, iPod/iPhone docking station, home theater system",
+    "Bathrobes, in-room bar, in-room safe, tea/coffee making facilities, hairdryer, iron and ironing board, down feather duvet and pillows",
+    "In-room telephone line, fax/printer access at Business Centre.",
+    "Laundry, mending and shoeshine services",
+    "24 hours in-room dining service with an extensive room service menu"
+]
 
 export default class MainContent extends React.Component {
     
@@ -78,15 +85,17 @@ export default class MainContent extends React.Component {
                             </Grid>
                             <Grid item xs={12} sm={12} md={4} lg={4}>
                                 <Typography style={{borderBottom: "1px solid #a77b5a", paddingBottom: "2%"}} variant="h5">Amenities as listed below: </Typography>
-                                <Typography style={{textAlign: "left", paddingTop: "10px", fontSize: "1rem"}} 
-                                            variant="h6"><ul>
-                                                            <li>42-inch satellite LCD television, DVD player, iPod/iPhone docking station, home theater system</li>
-                                                            <li> Bathrobes, in-room bar, in-room safe, tea/coffee making facilities, hairdryer, iron and ironing board, down feather duvet and pillows</li>
-                                                            <li> In-room telephone line, fax/printer access at Business Centre.</li>
-                                                            <li> Laundry, mending and shoeshine services</li>
-                                                            <li> 24 hours in-room dining service with an extensive room service menu</li>
-                                                        </ul>
-                             </Typography>
+                                <Typography style={{textAlign: "left", fontSize: "1rem"}} variant="h6">
+                                    {details.map(e =>{
+                                        return(
+                                            <div>
+                                                <ul>
+                                                    <li>{e}</li>
+                                                </ul>
+                                            </div>
+                                        )
+                                    })}
+                                </Typography>
                             </Grid>
 
                         </Grid>
