@@ -40,7 +40,7 @@ export default function FeatureRoom() {
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}  >
             <Grid item xs={12} md={4} rowSpacing={1} height="100%" padding="1vh" component={Link} to='/ClubRoom' style={{textDecoration: 'none'}}>
             <Item >
-                    <img width="100%" src= 'https://www.icsaigon.com/sites/icsaigon/files/styles/feature_photo_rec/public/2021-06/Club%20InterContinental.png?itok=VL-Ihbgi' alt=''></img>
+                    <img width="100%" src= 'https://i.ibb.co/1sT1zMb/Club-Inter-Continental-Suites.png' alt=''></img>
                     <Typography padding="2vh 0" variant="h4" component="div" textAlign="center" sx={{ flexGrow: 1 }} height="100px" color="#A77B5A"> Club Intercontinental Room</Typography>
                     <Typography padding="0 1vw" variant="body1" gutterBottom textAlign="left" color={textcolor} minHeight="35vh" maxHeight="70vh" paddingBottom="2vh">
                         Club InterContinental rooms offer exclusive space to relax, along with stunning views of cosmopolitan Saigon. You'll also enjoy benefits like complimentary pressing service, complimentary Wi-Fi and local calls. These premium rooms include daily breakfasts at Club InterContinental Lounge or Market 39 restaurant,
@@ -78,7 +78,7 @@ export default function FeatureRoom() {
             </Grid>
             <Grid item xs={12} md={4} rowSpacing={1} height="100%" padding="1vh" component={Link} to='/SuperiorRoom' style={{textDecoration: 'none'}} >
                 <Item >
-                    <img width="100%" src= 'https://www.icsaigon.com/sites/icsaigon/files/styles/feature_photo_rec/public/2018-04/Superior%20King%20Deluxe.jpg?itok=nM8QmnRP' alt=''></img>
+                    <img width="100%" src= 'https://i.ibb.co/104swM5/Superior-King-Deluxe.jpg' alt=''></img>
                     <Typography padding="2vh 0" variant="h4" component="div" textAlign="center" sx={{ flexGrow: 1 }} height="100px" color="#A77B5A"> Superior Room</Typography>
                     <Typography padding="0 1vw" variant="body1" gutterBottom textAlign="left" color={textcolor} minHeight="35vh" maxHeight="70vh" paddingBottom="2vh" >
                         Looking out across magnificent panoramic views of Saigon, this well-appointed 38 sqm room offers the perfect balance of privacy and luxury. Combining classic design elements with modern technological amenities, our Superior rooms at 
@@ -108,7 +108,7 @@ export default function FeatureRoom() {
             </Grid>
             <Grid item xs={12} md={4} rowSpacing={1} height="100%" padding="1vh" component={Link} to='/DeluxeRoom' style={{textDecoration: 'none'}}>
                 <Item >
-                    <img width="100%" src= 'https://www.icsaigon.com/sites/icsaigon/files/styles/feature_photo_rec/public/2021-06/Deluxe%20King%20InterContinental%20Saigon.png?itok=yu4dBzx1' alt=''></img>
+                    <img width="100%" src= 'https://i.ibb.co/9Yb5g6x/Deluxe-King-Inter-Continental-Saigon.png' alt=''></img>
                     <Typography padding="2vh 0" variant="h4" component="div" textAlign="center" sx={{ flexGrow: 1 }} height="100px" color="#A77B5A"> Deluxe King Room</Typography>
                     <Typography padding="0 1vw" variant="body1" gutterBottom textAlign="left" color={textcolor} minHeight="35vh" maxHeight="70vh" paddingBottom="2vh" >
                         Ideal for both business and leisure travellers, timeless luxury and functional amenities unite, all with a stunning view of the city. 
