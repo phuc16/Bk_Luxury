@@ -74,7 +74,7 @@ const itemData = [
     title: 'Hats',
   },
   {
-    img: 'https://cdn.getlocalmeasure.com/photos/IF-17870253340600261_640x640.jpg',
+    img: 'https://images.pexels.com/photos/257834/pexels-photo-257834.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     title: 'Honey',
   },
   {
@@ -82,7 +82,7 @@ const itemData = [
     title: 'Basketball',
   },
   {
-    img: 'https://cdn.getlocalmeasure.com/photos/IG-1757144823734025860_330471868_320x320.jpg',
+    img: 'https://images.pexels.com/photos/162766/table-dessert-coffee-on-the-table-162766.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     title: 'Fern',
   },
   {
