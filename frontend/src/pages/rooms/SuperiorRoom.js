@@ -9,20 +9,21 @@ import themeRooms from './components/Theme';
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import axios from 'axios'
 import { ThirdPersonSuperior } from './components/ServiceList';
-
-
-let Rooms = [];
-axios.get(`/api/room/type/superior`)
-    .then(res => {
-        Rooms = res.data
-        Rooms.push(ThirdPersonSuperior);
-        for (const r of Rooms) {
-            console.log("data: " + r.name)
-        }
-    })
-    .catch(error => console.log(error));
+import React from 'react';
 
 export default function SuperiorRoom() {
+
+    const [Rooms, setRooms] = React.useState([]);
+    React.useEffect(() => {
+        axios.get(`/api/room/type/superior`)
+        .then(res => {
+            //console.log(res.data);
+            setRooms(res.data);
+            setRooms(Rooms => [...Rooms, ThirdPersonSuperior]);
+            //Rooms.push(ThirdPersonClub);
+        })
+        .catch(error => console.log(error));
+    },[]);
 
     return (
         <MuiThemeProvider theme={themeRooms}>

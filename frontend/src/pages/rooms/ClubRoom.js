@@ -11,27 +11,33 @@ import { Services } from './components/ServiceList';
 import axios from 'axios'
 import React from 'react';
 
-let Rooms = [];
-axios.get(`/api/room/type/club`)
-    .then(res => {
-        Rooms = res.data
-        Rooms.push(ThirdPersonClub);
-    })
-    .catch(error => console.log(error));
+//let Rooms = [];
+
 
 
 export default function ClubRoom() {
 
+    const [Rooms, setRooms] = React.useState([]);
+    React.useEffect(() => {
+        axios.get(`/api/room/type/club`)
+        .then(res => {
+            //console.log(res.data);
+            setRooms(res.data);
+            setRooms(Rooms => [...Rooms, ThirdPersonClub]);
+            //Rooms.push(ThirdPersonClub);
+        })
+        .catch(error => console.log(error));
+    },[]);
     return (
         <MuiThemeProvider theme={themeRooms}>
             <Banner />
             <Main />
             <MainContent />
             {
-                Rooms.map(e => {
+                Rooms && Rooms.map((e) => {
                     let Equips = [];
-                    Equips = Services.find(s => s.name === e.name).services
-                    console.log(Equips)
+                    Equips = Services.find(s => s.name === e.name).services;
+                    console.log(Equips);
 
                     if (Rooms.indexOf(e) % 2 === 0) {
                         return (

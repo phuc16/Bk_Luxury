@@ -9,17 +9,21 @@ import themeRooms from './components/Theme';
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import axios from 'axios'
 import { ThirdPersonDeluxe } from './components/ServiceList';
-
-
-let Rooms = [];
-axios.get(`/api/room/type/deluxe`)
-    .then(res => {
-        Rooms = res.data
-        Rooms.push(ThirdPersonDeluxe);
-    })
-    .catch(error => console.log(error));
+import React from 'react';
 
 export default function DeluxeRoom() {
+
+    const [Rooms, setRooms] = React.useState([]);
+    React.useEffect(() => {
+        axios.get(`/api/room/type/deluxe`)
+        .then(res => {
+            //console.log(res.data);
+            setRooms(res.data);
+            setRooms(Rooms => [...Rooms, ThirdPersonDeluxe]);
+            //Rooms.push(ThirdPersonClub);
+        })
+        .catch(error => console.log(error));
+    },[]);
 
     return (
         <MuiThemeProvider theme={themeRooms}>
@@ -27,7 +31,7 @@ export default function DeluxeRoom() {
             <Main />
             <MainContent />
             {
-                Rooms.map(e => {
+                Rooms && Rooms.map(e => {
                     let Equips = [];
                     Equips = Services.find(s => s.name === e.name).services
                     console.log(Equips)
