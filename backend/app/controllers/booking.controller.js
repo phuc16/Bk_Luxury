@@ -78,16 +78,16 @@ exports.update = (req, res) => {
             (req.body.checkIn == '') ||
             (req.body.checkOut == '') || 
             (req.body.checkOut < req.body.checkIn) ) {
-                
-        return res.status(400).send({
+
+            return res.status(400).send({
             message: "Invalid input!"
         });
     }
-    
+
     Booking.findByNumber(req.body.roomNumber, (err, data) => {
         if (data){
             for (let datas of data){
-                if (!((new Date(req.body.checkIn) > new Date(datas.checkOut)) || (new Date(req.body.checkOut) < new Date(datas.checkIn))) && data.roomNumber !== req.body.roomNumber){
+                if (!((new Date(req.body.checkIn) > new Date(datas.checkOut)) || (new Date(req.body.checkOut) < new Date(datas.checkIn))) && datas.id !== Number(req.params.id)){
                     return res.status(400).send({
                         message: `Room was booked from ${req.params.checkIn} to ${req.params.checkOut} !`
                     });
