@@ -23,7 +23,7 @@ export default class MainContent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            img: ImageItem1
+            img: ImageItem5
         }
         this.setImage = this.setImage.bind(this)
     }
